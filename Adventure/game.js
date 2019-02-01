@@ -31,7 +31,7 @@ function Game() {
                         if(dressed == "open door" || dressed == "open" || dressed == "o") {
                             alert("Your door swings open.");
                             alert("The smell of delicious typical morning food intensifies.");
-                            FirstMorningDressed();
+                            FirstMorningUpstairsDressed();
                         }
                         else {
                             alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
@@ -43,7 +43,7 @@ function Game() {
                 else if(outBed == "open door" || outBed == "open" || outBed == "o") {
                     alert("Your door swings open.");
                     alert("The smell of delicious typical morning food intensifies.");
-                    FirstMorningNaked();
+                    FirstMorningUpstairsNaked();
                 }
 
                 else {
@@ -71,13 +71,13 @@ function Game() {
             }
     */
     
-    function FirstMorningDressed() {
-        alert("There are no other rooms open upstairs.");
+    function FirstMorningUpstairsDressed() {
+        alert("There are no other rooms open upstairs. You head downstairs.");
         FirstMorningDownstairsDressed();
     }
     
     
-    function FirstMorningNaked() {
+    function FirstMorningUpstairsNaked() {
         FirstUpstairsPrompt();
         
         function FirstUpstairsPrompt() {
@@ -93,8 +93,22 @@ function Game() {
                         FirstUpstairsMirror();
                         
                         function FirstUpstairsMirror() {
-                            var greenBathroomPrompt = prompt("You look shamefully at your awkward, undressed self in the mirror. \n - Go get dressed \n - Screw you, narrator!");
+                            var greenBathroomPrompt = prompt("You look shamefully at your awkward, undressed self in the mirror. \n - Go get dressed \n - Forget this").toLowerCase();
                             
+                            if(greenBathroomPrompt == "go get dressed" || greenBathroomPrompt == "get dressed" || greenBathroomPrompt == "g") {
+                                alert("You finally put clothes on. Since there's nothing else to do, you head downstairs.");
+                                FirstMorningDownstairsDressed();
+                            }
+                            
+                            else if(greenBathroomPrompt == "forget this" || greenBathroomPrompt == "forget" || greenBathroomPrompt == "f") {
+                                alert("Fine. You refuse to get dressed like a normal person. Since there's nothing else to do, you head downstairs.");
+                                FirstMorningDownstairsNaked();
+                            }
+                            
+                            else {
+                                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                                FirstUpstairsMirror();
+                            }
                         }
                     }
                     
@@ -119,5 +133,31 @@ function Game() {
                 FirstUpstairsPrompt();
             }
         }
+    }
+    
+    
+    function FirstMorningDownstairsDressed() {
+        alert("Entering the kitchen, you see a plate of bacon and eggs on the counter. Your mother appears from behind the fridge and places a small jar next to the plate.");
+        prompt("She says, \"Ah, " + playerName + "! You're finally awake! How are you feeling?\"");
+        alert("\"...\"");
+        alert("\"I see...\"");
+        prompt("\"You mentioned yesterday that you were having trouble sleeping?\"");
+        alert("\"Well, anyway...\"");
+        alert("She gestures to the small jar.");
+        alert("\"I managed to have these pills prescribed for you, they might help you sleep more soundly.\"");
+        var firstMorningDrug = prompt("Pills, or breakfast first? *This choice will matter* \n - Pills \n - Breakfast");
+    }
+    
+    
+    function FirstMorningDownstairsNaked() {
+        alert("Entering the kitchen, you see a plate of bacon and eggs on the counter. Your mother appears from behind the fridge and places a small jar next to the plate.");
+        prompt("She says, startled, \"AH! " + playerName + "?! Where are your clothes?!\"");
+        alert("\"Nevermind.\"");
+        alert("\"I don't want to know.\"");
+        prompt("\"You mentioned yesterday that you were having trouble sleeping?\"");
+        alert("\"Well, anyway...\"");
+        alert("She gestures to the small jar.");
+        alert("\"I managed to have these pills prescribed for you, they might help you sleep more soundly.\"");
+        var firstMorningDrug = prompt("Pills, or breakfast first? *This choice will matter* \n - Pills \n - Breakfast");
     }
 }
