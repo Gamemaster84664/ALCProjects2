@@ -280,11 +280,63 @@ function Game() {
     function FirstDream() {
         alert("You are asleep.");
         
+        var coinInventory = [
+            coins = 0
+        ]
+        
+        alert("You must find all six coins before leaving.");
+        alert("You have " + coinInventory + " coins so far.");
+        alert("You are in your room at night. It sounds like there are many people downstairs.");
+        FirstDreamFirstRoom();
+        
+        function FirstDreamFirstRoom() {
+            var firstDreamFirstRoomSearch = prompt("What do you do? \n - Go to bed \n - Search closet \ - Search bed \- Enter hallway").toLowerCase();
+            
+            if(firstDreamFirstRoomSearch == "go to bed" || firstDreamFirstRoomSearch == "go") {
+                if(coinInventory == 6) {
+                    alert("You have collected all the coins. You sink slowly into your bed.");
+                    SecondMorning();
+                }
+                else {
+                    alert("You must find all six coins before leaving.");
+                    alert("You have " + coinInventory + " coins so far.");
+                    FirstDreamFirstRoom();
+                }
+            }
+            
+            else if(firstDreamFirstRoomSearch == "search closet" || firstDreamFirstRoomSearch == "closet") {
+                
+            }
+            
+            else if(firstDreamFirstRoomSearch == "search bed") {
+                
+            }
+            
+            else if(firstDreamFirstRoomSearch == "enter hallway" || firstDreamFirstRoomSearch == "enter") {
+                
+            }
+                
+            else {
+                alert("You have either chosen an answer that leads to nothing or doesn't make sense. Please try again.");
+                FirstDreamFirstRoom();
+            }
+        }
     }
     
     //First Dream from pills first
     function FirstDrugDream() {
         alert("You are asleep.");
         
+        var drugInventory = [
+            pills = 0
+        ]
+        
+        alert("You must find all six pills before leaving.");
+        alert("You have " + drugInventory + " pills so far.");
+        alert("You are in your room at night. The walls are swaying to an unknown rhythm.");
+        
+        function FirstDrugDreamFirstRoom() {
+            prompt("What do you do? \n - Search closet \n - Search bed").toLowerCase();
+        }
     }
 }
