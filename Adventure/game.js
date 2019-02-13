@@ -287,6 +287,9 @@ function Game() {
         
         var yourClosetSearch = true;
         var parentsClosetSearch = true;
+        var couchSearch = true;
+        var studyShelfSearch = true;
+        var fridgeSearch = true;
         
         alert("You must find all six coins before leaving.");
         alert("You have " + coinInventory + " coins so far.");
@@ -416,6 +419,120 @@ function Game() {
                 FirstDreamUpstairsHallway();
             }
         }
+        
+        //First Dream downstairs
+        function FirstDreamLivingRoom() {
+            var downstairsParty = prompt("You are in the living room, where a massive party is taking place. The music heard earlier is now pounding and shaking the walls. Many people are getting quite drunk, including your mother. \n - Talk to mom \n - Enter kitchen \n - Enter study \n - Search couch").toLowerCase();
+            
+            if(downstairsParty == "talk to mom" || downstairsParty == "talk" || downstairsParty == "mom" || downstairsParty == "t" || downstairsParty == "m") {
+                alert("You walk up to your mother, who greets you with a sluggish hug and unpleasant breath.");
+                prompt("\"How ya doon, " + playerName + "?\"");
+                alert("She seems to ignore you. Pretty accurate to real life.");
+                alert("\"Anyhoooo...\"");
+                alert("\"Stay awhile, have a drink or three! Or seven!\"");
+                FirstDreamLivingRoom();
+            }
+            
+            else if(downstairsParty == "enter kitchen" || downstairsParty == "kitchen" || downstairsParty == "k") {
+                alert("You enter the kitchen.");
+                FirstDreamKitchen();
+            }
+            
+            else if(downstairsParty == "enter study" || downstairsParty == "study") {
+                alert("You enter your father's study.");
+                FirstDreamStudy();
+            }
+            
+            else if(downstairsParty == "search couch" || downstairsParty == "couch" || downstairsParty == "search" || downstairsParty == "s" || downstairsParty == "c") {
+                alert("You shove people one by one off of the couch and throw the cushions behind you.");
+                if(couchSearch == true) {
+                    couchSearch = false;
+                    coinInventory += 1;
+                    alert("You found a coin! You have " + coinInventory + " coins so far");
+                    FirstDreamLivingRoom();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDreamLivingRoom();
+                }
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDreamLivingRoom();
+            }
+        }
+        
+        //First Dream study
+        function FirstDreamStudy() {
+            var studySearch = prompt("Nobody seems to want to party in the study. Shocker. \n - Search bookshelf \n - Leave study").toLowerCase();
+            
+            if(studySearch == "search bookshelf" || studySearch == "search" || studySearch == "bookshelf" || studySearch == "s" || studySearch == "b") {
+                if(studyShelfSearch == true) {
+                    studyShelfSearch = false;
+                    coinInventory += 1;
+                    alert("You found a coin! You have " + coinInventory + " coins so far");
+                    FirstDreamStudy();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDreamStudy();
+                }
+            }
+            
+            else if(studySearch == "leave study" || studySearch == "leave" || studySearch == "l") {
+                alert("You leave your father's study.");
+                FirstDreamLivingRoom();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDreamLivingRoom();
+            }
+        }
+        
+        //First Dream kitchen
+        function FirstDreamKitchen() {
+            var kitchenSearch = prompt("There are a few people in here eating out of the fridge and spilling their drinks casually onto the floor. \n - Search fridge \n - Search trash \n - Enter bathroom \n - Enter living room").toLowerCase();
+            
+            if(kitchenSearch == "search fridge" || kitchenSearch == "fridge" || kitchenSearch == "f") {
+                alert("You shove two guys out of the way, knocking them and their drinks to the floor.");
+                if(fridgeSearch == true) {
+                    fridgeSearch = false;
+                    coinInventory += 1;
+                    alert("You found a coin! You have " + coinInventory + " coins so far");
+                    FirstDreamKitchen();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDreamKitchen();
+                }
+            }
+            
+            else if(kitchenSearch == "search trash" || kitchenSearch == "trash" || kitchenSearch == "t") {
+                alert("There's nothing here.");
+                FirstDreamKitchen();
+            }
+            
+            else if(kitchenSearch == "enter bathroom" || kitchenSearch == "bathroom" || kitchenSearch == "b") {
+                alert("You enter a large, yellow bathroom.");
+                FirstDreamYellowBathroom();
+            }
+            
+            else if(kitchenSearch == "enter living room" || kitchenSearch == "living room" || kitchenSearch == "living" || kitchenSearch == "l") {
+                alert("You enter the living room.");
+                FirstDreamLivingRoom();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDreamKitchen();
+            }
+        }
+        
+        function FirstDreamYellowBathroom() {
+            
+        }
     }
     
         
@@ -424,9 +541,7 @@ function Game() {
     function FirstDrugDream() {
         alert("You are asleep.");
         
-        var drugInventory = [
-            pills = 0
-        ]
+        var drugInventory = 0;
         
         alert("You must find all six pills before leaving.");
         alert("You have " + drugInventory + " pills so far.");
