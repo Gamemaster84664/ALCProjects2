@@ -5,8 +5,8 @@ function Game() {
     //Starts the whole Game.
     alert("You are awake.");
     var playerName = prompt("What is your name?");
-    if(playerName == "fd") {
-        FirstDream();
+    if(playerName == "fdd") {
+        FirstDrugDream();
     }
     alert("Welcome to Dream Simulator: Text Edition, " + playerName + ".");
     confirm("Are you ready to start your intense psychological journey?");
@@ -290,6 +290,7 @@ function Game() {
         var couchSearch = true;
         var studyShelfSearch = true;
         var fridgeSearch = true;
+        var cabinetSearch = true;
         
         alert("You must find all six coins before leaving.");
         alert("You have " + coinInventory + " coins so far.");
@@ -317,7 +318,12 @@ function Game() {
                 if(yourClosetSearch == true) {
                     yourClosetSearch = false;
                     coinInventory += 1;
-                    alert("You found a coin! You have " + coinInventory + " coins so far");
+                    if(coinInventory == 6) {
+                        alert("You found all the coins! Head back to bed!");
+                    }
+                    else {
+                        alert("You found a coin! You have " + coinInventory + " coins so far.");
+                    }
                     FirstDreamFirstRoom();
                 }
                 else {
@@ -385,7 +391,12 @@ function Game() {
                 if(parentsClosetSearch == true) {
                     parentsClosetSearch = false;
                     coinInventory += 1;
-                    alert("You found a coin! You have " + coinInventory + " coins so far");
+                    if(coinInventory == 6) {
+                        alert("You found all the coins! Head back to bed!");
+                    }
+                    else {
+                        alert("You found a coin! You have " + coinInventory + " coins so far.");
+                    }
                     FirstDreamParentsRoom();
                 }
                 else {
@@ -422,7 +433,7 @@ function Game() {
         
         //First Dream downstairs
         function FirstDreamLivingRoom() {
-            var downstairsParty = prompt("You are in the living room, where a massive party is taking place. The music heard earlier is now pounding and shaking the walls. Many people are getting quite drunk, including your mother. \n - Talk to mom \n - Enter kitchen \n - Enter study \n - Search couch").toLowerCase();
+            var downstairsParty = prompt("You are in the living room, where a massive party is taking place. The music heard earlier is now pounding and shaking the walls. Many people are getting quite drunk, including your mother. \n - Talk to mom \n - Enter kitchen \n - Enter study \n - Search couch \n - Go upstairs").toLowerCase();
             
             if(downstairsParty == "talk to mom" || downstairsParty == "talk" || downstairsParty == "mom" || downstairsParty == "t" || downstairsParty == "m") {
                 alert("You walk up to your mother, who greets you with a sluggish hug and unpleasant breath.");
@@ -448,13 +459,23 @@ function Game() {
                 if(couchSearch == true) {
                     couchSearch = false;
                     coinInventory += 1;
-                    alert("You found a coin! You have " + coinInventory + " coins so far");
+                    if(coinInventory == 6) {
+                        alert("You found all the coins! Head upstairs and go back to bed!");
+                    }
+                    else {
+                        alert("You found a coin! You have " + coinInventory + " coins so far.");
+                    }
                     FirstDreamLivingRoom();
                 }
                 else {
                     alert("There's nothing here.");
                     FirstDreamLivingRoom();
                 }
+            }
+            
+            else if(downstairsParty == "go upstairs" || downstairsParty == "go" || downstairsParty == "upstairs" || downstairsParty == "g" || downstairsParty == "u") {
+                alert("You head back upstairs.");
+                FirstDreamUpstairsHallway();
             }
             
             else {
@@ -471,7 +492,12 @@ function Game() {
                 if(studyShelfSearch == true) {
                     studyShelfSearch = false;
                     coinInventory += 1;
-                    alert("You found a coin! You have " + coinInventory + " coins so far");
+                    if(coinInventory == 6) {
+                        alert("You found all the coins! Head upstairs and go back to bed!");
+                    }
+                    else {
+                        alert("You found a coin! You have " + coinInventory + " coins so far.");
+                    }
                     FirstDreamStudy();
                 }
                 else {
@@ -500,7 +526,12 @@ function Game() {
                 if(fridgeSearch == true) {
                     fridgeSearch = false;
                     coinInventory += 1;
-                    alert("You found a coin! You have " + coinInventory + " coins so far");
+                    if(coinInventory == 6) {
+                        alert("You found all the coins! Head upstairs and go back to bed!");
+                    }
+                    else {
+                        alert("You found a coin! You have " + coinInventory + " coins so far.");
+                    }
                     FirstDreamKitchen();
                 }
                 else {
@@ -530,8 +561,37 @@ function Game() {
             }
         }
         
+        //First Dream downstairs bathroom
         function FirstDreamYellowBathroom() {
+            var yellowBathroomSearch = prompt("There is a cabinet over the sink. The sink is full of various alcoholic liquids. \n - Search cabinet \n - Leave bathroom").toLowerCase();
             
+            if(yellowBathroomSearch == "search cabinet" || yellowBathroomSearch == "search" || yellowBathroomSearch == "cabinet" || yellowBathroomSearch == "s" || yellowBathroomSearch == "c") {
+                if(cabinetSearch == true) {
+                    cabinetSearch = false;
+                    coinInventory += 1;
+                    if(coinInventory == 6) {
+                        alert("You found all the coins! Head upstairs and go back to bed!");
+                    }
+                    else {
+                        alert("You found a coin! You have " + coinInventory + " coins so far.");
+                    }
+                    FirstDreamYellowBathroom();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDreamYellowBathroom();
+                }
+            }
+            
+            else if(yellowBathroomSearch == "leave bathroom" || yellowBathroomSearch == "leave" || yellowBathroomSearch == "l") {
+                alert("You head back into the kitchen.");
+                FirstDreamKitchen();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDreamYellowBathroom();
+            }
         }
     }
     
@@ -543,12 +603,315 @@ function Game() {
         
         var drugInventory = 0;
         
+        var yourBedSearch = true;
+        var parentsBedSearch = true;
+        var couchSearch = true;
+        var studyShelfSearch = true;
+        var trashSearch = true;
+        var sinkSearch = true;
+        
         alert("You must find all six pills before leaving.");
         alert("You have " + drugInventory + " pills so far.");
         alert("You are in your room at night. The walls are swaying to an unknown rhythm.");
+        FirstDrugDreamFirstRoom();
         
+        //First Drug Dream your bedroom
         function FirstDrugDreamFirstRoom() {
-            prompt("What do you do? \n - Search closet \n - Search bed").toLowerCase();
+            var firstDrugDreamFirstRoomSearch = prompt("What do you do? \n - Go to bed \n - Search closet \ - Search bed \- Enter hallway").toLowerCase();
+            
+            if(firstDrugDreamFirstRoomSearch == "go to bed" || firstDrugDreamFirstRoomSearch == "go" || firstDrugDreamFirstRoomSearch == "g") {
+                if(drugInventory == 6) {
+                    alert("You have collected all the pills. You sink slowly into your bed.");
+                    SecondMorning();
+                }
+                else {
+                    alert("You must find all six pills before leaving.");
+                    alert("You have " + drugInventory + " pills so far.");
+                    FirstDrugDreamFirstRoom();
+                }
+            }
+            
+            else if(firstDrugDreamFirstRoomSearch == "search bed") {
+                if(yourBedSearch == true) {
+                    yourBedSearch = false;
+                    drugInventory += 1;
+                    if(drugInventory == 6) {
+                        alert("You found all the pills! Head back to bed!");
+                    }
+                    else {
+                        alert("You found a pill! You have " + drugInventory + " pills so far.");
+                    }
+                    FirstDrugDreamFirstRoom();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDrugDreamFirstRoom();
+                }
+            }
+            
+            else if(firstDrugDreamFirstRoomSearch == "search closet" || firstDrugDreamFirstRoomSearch == "closet" || firstDrugDreamFirstRoomSearch == "c") {
+                alert("There's nothing here.");
+                FirstDrugDreamFirstRoom();
+            }
+            
+            else if(firstDrugDreamFirstRoomSearch == "enter hallway" || firstDrugDreamFirstRoomSearch == "enter" || firstDrugDreamFirstRoomSearch == "e") {
+                alert("You leave your room and enter the hallway.");
+                FirstDrugDreamUpstairsHallway();
+            }
+                
+            else {
+                alert("You have either chosen an answer that leads to nothing or doesn't make sense. Please try again.");
+                FirstDrugDreamFirstRoom();
+            }
         }
+        
+        //First Drug Dream upstairs
+        function FirstDrugDreamUpstairsHallway() {
+            var upstairsPrompt = prompt("There are three doors open upstairs. The walls are still swaying. \n - Enter your bedroom \n - Enter parents' bedroom \n - Enter bathroom \n - Go downstairs").toLowerCase();
+            
+            if(upstairsPrompt == "enter your bedroom" || upstairsPrompt == "your bedroom" || upstairsPrompt == "your" || upstairsPrompt == "y") {
+                alert("You enter your bedroom.");
+                FirstDrugDreamFirstRoom();
+            }
+            
+            else if(upstairsPrompt == "enter parents bedroom" || upstairsPrompt == "enter parents' bedroom" || upstairsPrompt == "parents bedroom" || upstairsPrompt == "parents' bedroom" || upstairsPrompt == "p") {
+                alert("You enter your parents' bedroom.");
+                FirstDrugDreamParentsRoom();
+            }
+            
+            else if(upstairsPrompt == "enter bathroom" || upstairsPrompt == "bathroom" || upstairsPrompt == "b") {
+                alert("You enter a small, green bathroom.");
+                FirstDrugDreamGreenBathroom();
+            }
+            
+            else if(upstairsPrompt == "go downstairs" || upstairsPrompt == "go" || upstairsPrompt == "downstairs" || upstairsPrompt == "g") {
+                alert("You head downstairs.");
+                FirstDrugDreamLivingRoom();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDrugDreamUpstairsHallway();
+            }
+        }
+        
+        //First Drug Dream parents room
+        function FirstDrugDreamParentsRoom() {
+            var parentsRoomSearch = prompt("The walls continue to sway in here. \n - Search closet \n - Search bed \n - Enter hallway").toLowerCase();
+            
+            if(parentsRoomSearch == "enter hallway" || parentsRoomSearch == "enter" || parentsRoomSearch == "hallway" || parentsRoomSearch == "e" || parentsRoomSearch == "h") {
+                alert("You leave your parents' bedroom and enter the hallway.");
+                FirstDrugDreamUpstairsHallway();
+            }
+            
+            else if(parentsRoomSearch == "search bed" || parentsRoomSearch == "bed" || parentsRoomSearch == "b") {
+                if(parentsBedSearch == true) {
+                    parentsBedSearch = false;
+                    drugInventory += 1;
+                    if(drugInventory == 6) {
+                        alert("You found all the pills! Head back to bed!");
+                    }
+                    else {
+                        alert("You found a pill! You have " + drugInventory + " pills so far.");
+                    }
+                    FirstDrugDreamParentsRoom();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDrugDreamParentsRoom();
+                }
+            }
+            
+            else if(parentsRoomSearch == "search closet" || parentsRoomSearch == "closet" || parentsRoomSearch == "c") {
+                alert("There's nothing here.");
+                FirstDrugDreamParentsRoom();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDrugDreamParentsRoom();
+            }
+        }
+        
+        //First Drug Dream upstairs bathroom
+        function FirstDrugDreamGreenBathroom() {
+            var firstDreamGreenBathroomSearch = prompt("There is a mirror on the wall. \n - Look at mirror \n- Leave bathroom").toLowerCase();
+            
+            if(firstDreamGreenBathroomSearch == "look at mirror" || firstDreamGreenBathroomSearch == "look" || firstDreamGreenBathroomSearch == "mirror") {
+                alert("Your face is gone.");
+                FirstDrugDreamGreenBathroom();
+            }
+            
+            else if(firstDreamGreenBathroomSearch == "leave bathroom" || firstDreamGreenBathroomSearch == "leave") {
+                alert("You leave the green bathroom and enter the hallway.");
+                FirstDrugDreamUpstairsHallway();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDrugDreamGreenBathroom();
+            }
+        }
+        
+        //First Drug Dream downstairs
+        function FirstDrugDreamLivingRoom() {
+            var downstairsParty = prompt("You are in the living room, where the floor is covered in gray, murky water. \n - Enter kitchen \n - Enter study \n - Search couch \n - Go upstairs").toLowerCase();
+            
+            if(downstairsParty == "enter kitchen" || downstairsParty == "kitchen" || downstairsParty == "k") {
+                alert("You enter the kitchen.");
+                FirstDrugDreamKitchen();
+            }
+            
+            else if(downstairsParty == "enter study" || downstairsParty == "study") {
+                alert("You enter your father's study.");
+                FirstDrugDreamStudy();
+            }
+            
+            else if(downstairsParty == "search couch" || downstairsParty == "couch" || downstairsParty == "search" || downstairsParty == "s" || downstairsParty == "c") {
+                alert("The cushions and fabrics shrivel away into the frame.");
+                if(couchSearch == true) {
+                    couchSearch = false;
+                    drugInventory += 1;
+                    if(drugInventory == 6) {
+                        alert("You found all the pills! Head upstairs and go back to bed!");
+                    }
+                    else {
+                        alert("You found a pill! You have " + drugInventory + " pills so far.");
+                    }
+                    FirstDrugDreamLivingRoom();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDrugDreamLivingRoom();
+                }
+            }
+            
+            else if(downstairsParty == "go upstairs" || downstairsParty == "go" || downstairsParty == "upstairs" || downstairsParty == "g" || downstairsParty == "u") {
+                alert("You head back upstairs.");
+                FirstDrugDreamUpstairsHallway();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDrugDreamLivingRoom();
+            }
+        }
+        
+        //First Drug Dream study
+        function FirstDrugDreamStudy() {
+            var studySearch = prompt("There is a man standing frozen by the bookshelf staring at you. He is pointing a finger at one of the books. \n - Search bookshelf \n - Leave study").toLowerCase();
+            
+            if(studySearch == "search bookshelf" || studySearch == "search" || studySearch == "bookshelf" || studySearch == "s" || studySearch == "b") {
+                alert("You move the book the man was pointing to.");
+                if(studyShelfSearch == true) {
+                    studyShelfSearch = false;
+                    drugInventory += 1;
+                    if(drugInventory == 6) {
+                        alert("You found all the pills! Head upstairs and go back to bed!");
+                    }
+                    else {
+                        alert("You found a pill! You have " + drugInventory + " pills so far.");
+                    }
+                    FirstDrugDreamStudy();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDrugDreamStudy();
+                }
+            }
+            
+            else if(studySearch == "leave study" || studySearch == "leave" || studySearch == "l") {
+                alert("You leave your father's study.");
+                FirstDrugDreamLivingRoom();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDrugDreamLivingRoom();
+            }
+        }
+        
+        //First Drug Dream kitchen
+        function FirstDrugDreamKitchen() {
+            var kitchenSearch = prompt("The fridge is pulsing with bulging veins. \n - Search fridge \n - Search trash \n - Enter bathroom \n - Enter living room").toLowerCase();
+            
+            if(kitchenSearch == "search trash" || kitchenSearch == "trash" || kitchenSearch == "t") {
+                if(trashSearch == true) {
+                    trashSearch = false;
+                    drugInventory += 1;
+                    if(drugInventory == 6) {
+                        alert("You found all the pills! Head upstairs and go back to bed!");
+                    }
+                    else {
+                        alert("You found a pill! You have " + drugInventory + " pills so far.");
+                    }
+                    FirstDrugDreamKitchen();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDrugDreamKitchen();
+                }
+            }
+            
+            else if(kitchenSearch == "search fridge" || kitchenSearch == "fridge" || kitchenSearch == "f") {
+                alert("There's nothing here. No pills anyway. There are hundreds of jars of white olives that look suspiciously like eyes, watching you.");
+                FirstDrugDreamKitchen();
+            }
+            
+            else if(kitchenSearch == "enter bathroom" || kitchenSearch == "bathroom" || kitchenSearch == "b") {
+                alert("You enter a large, yellow bathroom.");
+                FirstDrugDreamYellowBathroom();
+            }
+            
+            else if(kitchenSearch == "enter living room" || kitchenSearch == "living room" || kitchenSearch == "living" || kitchenSearch == "l") {
+                alert("You enter the living room.");
+                FirstDrugDreamLivingRoom();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDrugDreamKitchen();
+            }
+        }
+        
+        //First Drug Dream downstairs bathroom
+        function FirstDrugDreamYellowBathroom() {
+            var yellowBathroomSearch = prompt("The sink is full of a black, tar-like substance. \n - Search sink \n - Leave bathroom").toLowerCase();
+            
+            if(yellowBathroomSearch == "search sink" || yellowBathroomSearch == "search" || yellowBathroomSearch == "sink" || yellowBathroomSearch == "s") {
+                alert("You plunge your hand into the dark liquid. It has an almost alive warmth to it.");
+                if(sinkSearch == true) {
+                    sinkSearch = false;
+                    drugInventory += 1;
+                    if(drugInventory == 6) {
+                        alert("You found all the pills! Head upstairs and go back to bed!");
+                    }
+                    else {
+                        alert("You found a pill! You have " + drugInventory + " pills so far.");
+                    }
+                    FirstDrugDreamYellowBathroom();
+                }
+                else {
+                    alert("There's nothing here.");
+                    FirstDrugDreamYellowBathroom();
+                }
+            }
+            
+            else if(yellowBathroomSearch == "leave bathroom" || yellowBathroomSearch == "leave" || yellowBathroomSearch == "l") {
+                alert("You head back into the kitchen.");
+                FirstDrugDreamKitchen();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDrugDreamYellowBathroom();
+            }
+        }
+    }
+    
+    
+    
+    function SecondMorning() {
+        
     }
 }
