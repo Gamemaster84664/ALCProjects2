@@ -5,8 +5,8 @@ function Game() {
     //Starts the whole Game.
     alert("You are awake.");
     var playerName = prompt("What is your name?");
-    if(playerName == "fdd") {
-        FirstDrugDream();
+    if(playerName == "climax") {
+        Climax();
     }
     alert("Welcome to Dream Simulator: Text Edition, " + playerName + ".");
     confirm("Are you ready to start your intense psychological journey?");
@@ -428,6 +428,11 @@ function Game() {
             else if(firstDreamGreenBathroomSearch == "leave bathroom" || firstDreamGreenBathroomSearch == "leave") {
                 alert("You leave the green bathroom and enter the hallway.");
                 FirstDreamUpstairsHallway();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstDreamGreenBathroom();
             }
         }
         
@@ -912,6 +917,110 @@ function Game() {
     
     
     function SecondMorning() {
+        alert("You are in your room.");
+        alert("It's morning.");
+        alert("Your mother has approached your bed carrying a tray with a plate of bacon and eggs.");
+        prompt("\"How did you sleep last night?\"");
+        alert("\"I'm sure you were fine.\"");
+        alert("A small jar has materialized on the tray.");
+        Climax();
+    }
+    
+    function Climax() {
+            var secondMorningPrompt = prompt("\"Would you like some more pills?\" \n *This choice will also matter* \n - Pills \n - \"This isn't real!\"").toLowerCase();
+
+            if(secondMorningPrompt == "p" || secondMorningPrompt == "pills") {
+                alert("You take the pills.");
+                alert("She smiles as you drift asleep.");
+                FirstDrugDream();
+            }
+
+            else if(secondMorningPrompt == "this isnt real" || secondMorningPrompt == "this" || secondMorningPrompt == "not real" || secondMorningPrompt == "no pills" || secondMorningPrompt == "t") {
+                alert("Your mom gives you a disapproving look.");
+                alert("She throws the tray at the wall. The plate crashes, spilling eggs, bacon and glass onto the floor.");
+                var climaxRun = prompt("She pulls out a knife. \n - Run!").toLowerCase();
+                
+                if(climaxRun == "run" || climaxRun == "r") {
+                    var upstairsClimax = prompt("You dash out of your room right as your mother slashes the pillow. \n - Bathroom \n - Downstairs").toLowerCase();
+                    
+                    if(upstairsClimax == "bathroom" || upstairsClimax == "b") {
+                        var bathroomClimax = prompt("You run into the green bathroom and slam the door. \n - Lock the door").toLowerCase();
+                        
+                        if(bathroomClimax == "lock the door" || bathroomClimax == "lock" || bathroomClimax == "door" || bathroomClimax == "l" || bathroomClimax == "d") {
+                            alert("You twist the lock.");
+                            alert("A loud thud comes from the other side.");
+                            alert("You look for an exit.");
+                            alert("The sound of splintering wood intensifies.");
+                            alert("The window is sealed shut.");
+                            alert("A blade pierces through the center of the door.");
+                            alert("You cower in the furthest corner from the door.");
+                            alert("Her whole hand plunges through the wood with the knife.");
+                            alert("It flies out of her hand.");
+                            Death();
+                        }
+                        
+                        else {
+                            alert("The door remains unlocked. It swings open to reveal your mom hunched over and shuddering in the doorway.");
+                            Death();
+                        }
+                    }
+                    
+                    else if(upstairsClimax == "downstairs" || upstairsClimax == "d") {
+                        var downstairsClimax = prompt("You stumble down the stairs. \n - Outside").toLowerCase();
+                        
+                        if(downstairsClimax == "outside" || downstairsClimax == "o") {
+                            alert("You run for the nearest door.");
+                            alert("Thankfully, it's unlocked.");
+                            alert("You slam the door on your mom and lock it.");
+                            Victory();
+                        }
+                        
+                        else {
+                            alert("Your mother leaps at you from the top of the stairs.");
+                            Death();
+                        }
+                    }
+                    
+                    else {
+                        Death();
+                    }
+                }
+                
+                else {
+                    Death();
+                }
+            }
+
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                Climax();
+            }
+        }
+    
+    
+    function Victory() {
+        alert("You have escaped!");
+        alert("However...");
+        alert("The walls on your house are swaying.");
+        alert("You try to sleep, but can't.");
+        alert("You pinch and slap yourself a few times, but you're still outside.");
+        alert("You close your eyes and count to three.");
+        Game();
+    }
+    
+    
+    function Death() {
+        alert("The knife is driven deep into your head.");
+        var restart = prompt("You have died. \n - Type R to restart at the last choice.").toLowerCase();
+            
+        if(restart == "r") {
+            Climax();
+        }
         
+        else {
+            alert("You don't want to restart?");
+            alert("Alright then.");
+            alert("If you want to come back here, chose \"climax\" as your name.");
+        }
     }
 }
