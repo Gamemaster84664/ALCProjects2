@@ -1,3 +1,4 @@
+var ending = false;
 Game();
 
 function Game() {
@@ -5,12 +6,19 @@ function Game() {
     //Starts the whole Game.
     alert("You are awake.");
     var playerName = prompt("What is your name?");
+    
     if(playerName == "climax") {
         Climax();
     }
     alert("Welcome to Dream Simulator: Text Edition, " + playerName + ".");
-    confirm("Are you ready to start your intense psychological journey?");
-    alert("Good. Here goes.");
+    
+    if (!confirm("Are you ready to start your intense psychological journey?")) {
+        alert("Too bad. Here goes.");
+    }
+    
+    else {
+        alert("Good. Here goes.");
+    }
     FirstMorningBed();
     
     
@@ -146,15 +154,23 @@ function Game() {
     
     //First Breakfast after dressed
     function FirstMorningDownstairsDressed() {
-        alert("Entering the kitchen, you see a plate of bacon and eggs on the counter. Your mother appears from behind the fridge and places a small jar next to the plate.");
-        prompt("She says, \"Ah, " + playerName + "! You're finally awake! How are you feeling?\"");
-        alert("\"...\"");
-        alert("\"I see...\"");
-        prompt("\"You mentioned yesterday that you were having trouble sleeping?\"");
-        alert("\"Well, anyway...\"");
-        alert("She gestures to the small jar.");
-        alert("\"I managed to have these pills prescribed for you, they might help you sleep more soundly.\"");
-        FirstMorningBreakfast();
+        if(ending == true) {
+            var trueEnding = prompt("Entering the kitchen, you see a knife on the counter. \n - End it \n - Try to sleep");
+            
+            
+        }
+        
+        else{
+            alert("Entering the kitchen, you see a plate of bacon and eggs on the counter. Your mother appears from behind the fridge and places a small jar next to the plate.");
+            prompt("She says, \"Ah, " + playerName + "! You're finally awake! How are you feeling?\"");
+            alert("\"...\"");
+            alert("\"I see...\"");
+            prompt("\"You mentioned yesterday that you were having trouble sleeping?\"");
+            alert("\"Well, anyway...\"");
+            alert("She gestures to the small jar.");
+            alert("\"I managed to have these pills prescribed for you, they might help you sleep more soundly.\"");
+            FirstMorningBreakfast();
+        }
         
         function FirstMorningBreakfast() {
             var firstMorningDrug = prompt("Pills, or breakfast first? *This choice will matter* \n - Pills \n - Breakfast").toLowerCase();
@@ -213,15 +229,23 @@ function Game() {
     
     //First Breakfast after refusing dressed
     function FirstMorningDownstairsNaked() {
-        alert("Entering the kitchen, you see a plate of bacon and eggs on the counter. Your mother appears from behind the fridge and places a small jar next to the plate.");
-        prompt("She says, startled, \"AH! " + playerName + "?! Where are your clothes?!\"");
-        alert("\"Nevermind.\"");
-        alert("\"I don't want to know.\"");
-        prompt("\"You mentioned yesterday that you were having trouble sleeping?\"");
-        alert("\"Well, anyway...\"");
-        alert("She gestures to the small jar.");
-        alert("\"I managed to have these pills prescribed for you, they might help you sleep more soundly.\"");
-        FirstMorningBreakfastNaked();
+        if(ending == true) {
+            var trueEnding = prompt("Entering the kitchen, you see a knife on the counter. \n - End it \n - Try to sleep");
+            
+            
+        }
+        
+        else {
+            alert("Entering the kitchen, you see a plate of bacon and eggs on the counter. Your mother appears from behind the fridge and places a small jar next to the plate.");
+            prompt("She says, startled, \"AH! " + playerName + "?! Where are your clothes?!\"");
+            alert("\"Nevermind.\"");
+            alert("\"I don't want to know.\"");
+            prompt("\"You mentioned yesterday that you were having trouble sleeping?\"");
+            alert("\"Well, anyway...\"");
+            alert("She gestures to the small jar.");
+            alert("\"I managed to have these pills prescribed for you, they might help you sleep more soundly.\"");
+            FirstMorningBreakfastNaked();
+        }
         
         function FirstMorningBreakfastNaked() {
             var firstMorningDrugNaked = prompt("Pills, or breakfast first? *This choice will matter* \n - Pills \n - Breakfast");
@@ -919,7 +943,7 @@ function Game() {
     function SecondMorning() {
         alert("You are in your room.");
         alert("It's morning.");
-        alert("Your mother has approached your bed carrying a tray with a plate of bacon and eggs.");
+        alert("Your mother has approached your bed carrying a tray with a plate of pancakes.");
         prompt("\"How did you sleep last night?\"");
         alert("\"I'm sure you were fine.\"");
         alert("A small jar has materialized on the tray.");
@@ -935,10 +959,10 @@ function Game() {
                 FirstDrugDream();
             }
 
-            else if(secondMorningPrompt == "this isnt real" || secondMorningPrompt == "this" || secondMorningPrompt == "not real" || secondMorningPrompt == "no pills" || secondMorningPrompt == "t") {
+            else if(secondMorningPrompt == "this isnt real" || secondMorningPrompt == "this isn't real" || secondMorningPrompt == "this" || secondMorningPrompt == "not real" || secondMorningPrompt == "no pills" || secondMorningPrompt == "t") {
                 alert("Your mom gives you a disapproving look.");
-                alert("She throws the tray at the wall. The plate crashes, spilling eggs, bacon and glass onto the floor.");
-                var climaxRun = prompt("She pulls out a knife. \n - Run!").toLowerCase();
+                alert("She throws the tray at the wall. The plate shatters, spilling pancakes and broken glass onto the floor.");
+                var climaxRun = prompt("She pulls out a large knife. \n - Run!").toLowerCase();
                 
                 if(climaxRun == "run" || climaxRun == "r") {
                     var upstairsClimax = prompt("You dash out of your room right as your mother slashes the pillow. \n - Bathroom \n - Downstairs").toLowerCase();
@@ -966,13 +990,59 @@ function Game() {
                     }
                     
                     else if(upstairsClimax == "downstairs" || upstairsClimax == "d") {
-                        var downstairsClimax = prompt("You stumble down the stairs. \n - Outside").toLowerCase();
+                        var downstairsClimax = prompt("You stumble down the stairs. \n - Front door \n - Kitchen window").toLowerCase();
                         
-                        if(downstairsClimax == "outside" || downstairsClimax == "o") {
+                        if(downstairsClimax == "front door" || downstairsClimax == "front" || downstairsClimax == "door" || downstairsClimax == "f" || downstairsClimax == "d") {
                             alert("You run for the nearest door.");
-                            alert("Thankfully, it's unlocked.");
-                            alert("You slam the door on your mom and lock it.");
-                            Victory();
+                            alert("It's locked.");
+                            var escapeDoor = prompt("Her shadow covers the door. \n - Fight \n - Flight");
+                            
+                            if(escapeDoor == "fight") {
+                                alert("You turn around and lunge at her.");
+                                alert("Somehow, you ended up plowing the knife into her stomach.");
+                                alert("You both fall to the floor. Your body lands on the handle and drives the blade even further.");
+                                alert("She coughs and gasps through a mouth full of blood and broken glass.");
+                                alert("Her spastic movements eventually stop.");
+                                Victory();
+                            }
+                            
+                            else if(escapeDoor == "flight") {
+                                alert("You try to dart past her.");
+                                alert("She grabs you and pulls you closer.");
+                                alert("Looking up, you see her wicked smile is full of shards of broken glass. Blood drips from the corners of her mouth.");
+                                Death();
+                            }
+                            
+                            else {
+                                Death(); 
+                            }
+                        }
+                        
+                        else if(downstairsClimax == "kitchen window" || downstairsClimax == "kitchen" || downstairsClimax == "window" || downstairsClimax == "k" || downstairsClimax == "w") {
+                            alert("You run to the kitchen window.");
+                            alert("It's open.");
+                            alert("She appears from around the corner, blood dripping from the corners of her mouth.");
+                            var escapeWindow = prompt("She appears from around the corner. \n - Fight \n - Flight").toLowerCase();
+                            
+                            if(escapeWindow == "fight") {
+                                alert("You run at her, fists swinging wildly.");
+                                alert("A few punches hit her, but she's not phased at all.");
+                                Death();
+                            }
+                            
+                            else if(escapeWindow == "flight") {
+                                alert("You scramble through the window.");
+                                alert("A stinging sensation forms behind your left thigh.");
+                                alert("You fall out of the window, landing hard on the knife in your leg.");
+                                alert("Looking through the window, your mother stares back and screams. Blood flies from her mouth, which is full of glass shards. Apparently, she can't get to you.");
+                                Victory();
+                            }
+                            
+                            else {
+                                alert("She approaches you.");
+                                alert("As her lips part into a sickening grin, shards of broken glass slowly cut across and shear them open.");
+                                Death();
+                            }
                         }
                         
                         else {
@@ -982,11 +1052,13 @@ function Game() {
                     }
                     
                     else {
+                        alert("Your mother creeps up behind you.");
                         Death();
                     }
                 }
                 
                 else {
+                    alert("You stay in your bed.");
                     Death();
                 }
             }
@@ -1002,16 +1074,17 @@ function Game() {
         alert("You have escaped!");
         alert("However...");
         alert("The walls on your house are swaying.");
-        alert("You try to sleep, but can't.");
+        alert("You try to fall asleep, but can't.");
         alert("You pinch and slap yourself a few times, but you're still outside.");
         alert("You close your eyes and count to three.");
+        ending = true;
         Game();
     }
     
     
     function Death() {
         alert("The knife is driven deep into your head.");
-        var restart = prompt("You have died. \n - Type R to restart at the last choice.").toLowerCase();
+        var restart = prompt("You have died. \n - Type R to restart at the last important choice.").toLowerCase();
             
         if(restart == "r") {
             Climax();
@@ -1020,7 +1093,7 @@ function Game() {
         else {
             alert("You don't want to restart?");
             alert("Alright then.");
-            alert("If you want to come back here, chose \"climax\" as your name.");
+            alert("If you want to come back here, choose \"climax\" as your name.");
         }
     }
 }
