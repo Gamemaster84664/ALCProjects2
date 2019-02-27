@@ -36,13 +36,13 @@ function Game() {
                 //Naked or Dressed prompt
                 var outBed = prompt("You stand half naked in your room. Thankfully, your door is closed. \n - Get dressed \n - Open door").toLowerCase();
 
-                if(outBed == "get dressed" || outBed == "dress" || outBed == "g") {
+                if(outBed == "get dressed" || outBed == "dress" || outBed == "g" || outBed == "dressed") {
                     FirstMorningDressPrompt();
                     
                     function FirstMorningDressPrompt() {
                         var dressed = prompt("You finally put clothes on. Your door is still closed. \n - Open door").toLowerCase();
 
-                        if(dressed == "open door" || dressed == "open" || dressed == "o") {
+                        if(dressed == "open door" || dressed == "open" || dressed == "o" || dressed == "door") {
                             alert("Your door swings open.");
                             alert("The smell of delicious typical morning food intensifies.");
                             FirstMorningUpstairsDressed();
@@ -54,7 +54,7 @@ function Game() {
                     }
                 }
 
-                else if(outBed == "open door" || outBed == "open" || outBed == "o") {
+                else if(outBed == "open door" || outBed == "open" || outBed == "o" || outBed == "door") {
                     alert("Your door swings open.");
                     alert("The smell of delicious typical morning food intensifies.");
                     FirstMorningUpstairsNaked();
@@ -78,12 +78,6 @@ function Game() {
         }
     }
     
-    /*var restart = prompt("You have died. \n - Press R to restart.").toLowerCase();
-            
-            if(restart == "r") {
-                Game();
-            }
-    */
     
     //First Morning after dressed
     function FirstMorningUpstairsDressed() {
@@ -99,24 +93,24 @@ function Game() {
         function FirstUpstairsPrompt() {
             var upstairs = prompt("There is one other door open upstairs. \n - Enter room \n - Go downstairs").toLowerCase();
             
-            if(upstairs == "enter room" || upstairs == "enter" || upstairs == "e") {
+            if(upstairs == "enter room" || upstairs == "enter" || upstairs == "e" || upstairs == "room" || upstairs == "r") {
                 FirstGreenBathroom();
                 
                 function FirstGreenBathroom() {
                     var greenBathroom = prompt("You enter a small, green bathroom. There is a mirror over the sink. \n - Look at mirror \n - Leave room").toLowerCase();
 
-                    if(greenBathroom == "look at mirror" || greenBathroom == "look") {
+                    if(greenBathroom == "look at mirror" || greenBathroom == "look" || greenBathroom == "look a" || greenBathroom == "mirror" || greenBathroom == "look m") {
                         FirstUpstairsMirror();
                         
                         function FirstUpstairsMirror() {
                             var greenBathroomPrompt = prompt("You look shamefully at your awkward, undressed self in the mirror. \n - Go get dressed \n - Forget this").toLowerCase();
                             
-                            if(greenBathroomPrompt == "go get dressed" || greenBathroomPrompt == "get dressed" || greenBathroomPrompt == "g") {
+                            if(greenBathroomPrompt == "go get dressed" || greenBathroomPrompt == "get dressed" || greenBathroomPrompt == "g" || greenBathroomPrompt == "go" || greenBathroomPrompt == "dressed" || greenBathroomPrompt == "d") {
                                 alert("You finally put clothes on. Since there's nothing else to do, you head downstairs.");
                                 FirstMorningDownstairsDressed();
                             }
                             
-                            else if(greenBathroomPrompt == "forget this" || greenBathroomPrompt == "forget" || greenBathroomPrompt == "f") {
+                            else if(greenBathroomPrompt == "forget this" || greenBathroomPrompt == "forget" || greenBathroomPrompt == "f" || greenBathroomPrompt == "forget t") {
                                 alert("Fine. You refuse to get dressed like a normal person. Since there's nothing else to do, you head downstairs.");
                                 FirstMorningDownstairsNaked();
                             }
@@ -128,7 +122,7 @@ function Game() {
                         }
                     }
                     
-                    else if(greenBathroom == "leave room" || greenBathroom == "leave") {
+                    else if(greenBathroom == "leave room" || greenBathroom == "leave" || greenBathroom == "room" || greenBathroom == "leave r") {
                         alert("You refuse to look at your undressed self in the mirror. Since there's nothing else to do, you head downstairs.");
                         FirstMorningDownstairsNaked();
                     }
@@ -140,7 +134,7 @@ function Game() {
                 }
             }
             
-            else if(upstairs == "go downstairs" || upstairs == "go" || upstairs == "downstairs" || upstairs == "g") {
+            else if(upstairs == "go downstairs" || upstairs == "go" || upstairs == "downstairs" || upstairs == "g" || upstairs == "d" || upstairs == "go d") {
                 FirstMorningDownstairsNaked();
             }
             
@@ -155,9 +149,33 @@ function Game() {
     //First Breakfast after dressed
     function FirstMorningDownstairsDressed() {
         if(ending == true) {
-            var trueEnding = prompt("Entering the kitchen, you see a knife on the counter. \n - End it \n - Try to sleep");
+            var trueEnding = prompt("Entering the kitchen, you see pills on the counter. \n - End it \n - Try to sleep").toLowerCase();
             
+            if(trueEnding == "end it" || trueEnding == "end" || trueEnding == "it" || trueEnding == "e" || trueEnding == "end i") {
+                alert("You pop the pills in your mouth.");
+                alert("A burning sensation removes all sense of taste.");
+                alert("You run into the bathroom and try to spit them out in the sink.");
+                alert("The pills are gone, as well as most of your tongue.");
+                alert("Gagging on singed tongue and blood, you pass out.");
+                alert("It is dark");
+                alert("Are you still asleep?");
+                alert("The answer to that will never be known...");
+                Credits();
+            }
             
+            else if(trueEnding == "try to sleep" || trueEnding == "sleep" || trueEnding == "try" || trueEnding == "t" || trueEnding == "s" || trueEnding == "try sleep" || trueEnding == "try s") {
+                alert("You pass out.");
+                alert("You try to open your eyes, but they seem to be sealed shut.");
+                alert("It is dark.");
+                alert("Are you still asleep?");
+                alert("The answer to that will never be known...");
+                Credits();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstMorningDownstairsDressed();
+            }
         }
         
         else{
@@ -232,7 +250,28 @@ function Game() {
         if(ending == true) {
             var trueEnding = prompt("Entering the kitchen, you see a knife on the counter. \n - End it \n - Try to sleep");
             
+            if(trueEnding == "end it" || trueEnding == "end" || trueEnding == "it" || trueEnding == "e" || trueEnding == "end i") {
+                alert("You pick up the knife. Your warped face is reflected in the blade.");
+                alert("Driving the knife into your stomach, you pass out.");
+                alert("It is dark.");
+                alert("Are you still asleep?");
+                alert("The answer to that will never be known...");
+                Credits();
+            }
             
+            else if(trueEnding == "try to sleep" || trueEnding == "sleep" || trueEnding == "try" || trueEnding == "t" || trueEnding == "s" || trueEnding == "try sleep" || trueEnding == "try s") {
+                alert("You pass out.");
+                alert("You try to open your eyes, but they seem to be sealed shut.");
+                alert("It is dark.");
+                alert("Are you still asleep?");
+                alert("The answer to that will never be known...");
+                Credits();
+            }
+            
+            else {
+                alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
+                FirstMorningDownstairsNaked();
+            }
         }
         
         else {
@@ -326,7 +365,7 @@ function Game() {
         function FirstDreamFirstRoom() {
             var firstDreamFirstRoomSearch = prompt("What do you do? \n - Go to bed \n - Search closet \ - Search bed \- Enter hallway").toLowerCase();
             
-            if(firstDreamFirstRoomSearch == "go to bed" || firstDreamFirstRoomSearch == "go" || firstDreamFirstRoomSearch == "g") {
+            if(firstDreamFirstRoomSearch == "go to bed" || firstDreamFirstRoomSearch == "go" || firstDreamFirstRoomSearch == "g" || firstDreamFirstRoomSearch == "go bed" || firstDreamFirstRoomSearch == "go b" || firstDreamFirstRoomSearch == "g bed") {
                 if(coinInventory == 6) {
                     alert("You have collected all the coins. You sink slowly into your bed.");
                     SecondMorning();
@@ -338,7 +377,7 @@ function Game() {
                 }
             }
             
-            else if(firstDreamFirstRoomSearch == "search closet" || firstDreamFirstRoomSearch == "closet" || firstDreamFirstRoomSearch == "c") {
+            else if(firstDreamFirstRoomSearch == "search closet" || firstDreamFirstRoomSearch == "closet" || firstDreamFirstRoomSearch == "c" || firstDreamFirstRoomSearch == "search c" || firstDreamFirstRoomSearch == "s closet") {
                 if(yourClosetSearch == true) {
                     yourClosetSearch = false;
                     coinInventory += 1;
@@ -356,12 +395,12 @@ function Game() {
                 }
             }
             
-            else if(firstDreamFirstRoomSearch == "search bed") {
+            else if(firstDreamFirstRoomSearch == "search bed" || firstDreamFirstRoomSearch == "search b" || firstDreamFirstRoomSearch == "s bed") {
                 alert("There's nothing here.");
                 FirstDreamFirstRoom();
             }
             
-            else if(firstDreamFirstRoomSearch == "enter hallway" || firstDreamFirstRoomSearch == "enter" || firstDreamFirstRoomSearch == "e") {
+            else if(firstDreamFirstRoomSearch == "enter hallway" || firstDreamFirstRoomSearch == "enter" || firstDreamFirstRoomSearch == "e" || firstDreamFirstRoomSearch == "enter h" || firstDreamFirstRoomSearch == "hallway" || firstDreamFirstRoomSearch == "h" || firstDreamFirstRoomSearch == "e hallway") {
                 alert("You leave your room and enter the hallway.");
                 FirstDreamUpstairsHallway();
             }
@@ -376,22 +415,22 @@ function Game() {
         function FirstDreamUpstairsHallway() {
             var upstairsPrompt = prompt("There are three doors open upstairs. The sound of people downstairs is accompanied by muffled dance music. \n - Enter your bedroom \n - Enter parents' bedroom \n - Enter bathroom \n - Go downstairs").toLowerCase();
             
-            if(upstairsPrompt == "enter your bedroom" || upstairsPrompt == "your bedroom" || upstairsPrompt == "your" || upstairsPrompt == "y") {
+            if(upstairsPrompt == "enter your bedroom" || upstairsPrompt == "your bedroom" || upstairsPrompt == "your" || upstairsPrompt == "y" || upstairsPrompt == "enter y" || upstairsPrompt == "your b" || upstairsPrompt == "y bedroom" || upstairsPrompt == "e your bedroom" || upstairsPrompt == "e your" || upstairsPrompt == "enter your") {
                 alert("You enter your bedroom.");
                 FirstDreamFirstRoom();
             }
             
-            else if(upstairsPrompt == "enter parents bedroom" || upstairsPrompt == "enter parents' bedroom" || upstairsPrompt == "parents bedroom" || upstairsPrompt == "parents' bedroom" || upstairsPrompt == "p") {
+            else if(upstairsPrompt == "enter parents bedroom" || upstairsPrompt == "enter parents' bedroom" || upstairsPrompt == "parents bedroom" || upstairsPrompt == "parents' bedroom" || upstairsPrompt == "p" || upstairsPrompt == "enter p" || upstairsPrompt == "e parents'" || upstairsPrompt == "e parents") {
                 alert("You enter your parents' bedroom.");
                 FirstDreamParentsRoom();
             }
             
-            else if(upstairsPrompt == "enter bathroom" || upstairsPrompt == "bathroom" || upstairsPrompt == "b") {
+            else if(upstairsPrompt == "enter bathroom" || upstairsPrompt == "bathroom" || upstairsPrompt == "b" || upstairsPrompt == "enter b" || upstairsPrompt == "e bathroom") {
                 alert("You enter a small, green bathroom.");
                 FirstDreamGreenBathroom();
             }
             
-            else if(upstairsPrompt == "go downstairs" || upstairsPrompt == "go" || upstairsPrompt == "downstairs" || upstairsPrompt == "g") {
+            else if(upstairsPrompt == "go downstairs" || upstairsPrompt == "go" || upstairsPrompt == "downstairs" || upstairsPrompt == "g" || upstairsPrompt == "d" || upstairsPrompt == "go d" || upstairsPrompt == "g downstairs" || upstairsPrompt == "go down" || upstairsPrompt == "down" || upstairsPrompt == "g down") {
                 alert("You head downstairs.");
                 FirstDreamLivingRoom();
             }
@@ -406,12 +445,12 @@ function Game() {
         function FirstDreamParentsRoom() {
             var parentsRoomSearch = prompt("The sounds from downstairs dampen when you enter. \n - Search closet \n - Search bed \n - Enter hallway").toLowerCase();
             
-            if(parentsRoomSearch == "enter hallway" || parentsRoomSearch == "enter" || parentsRoomSearch == "hallway" || parentsRoomSearch == "e" || parentsRoomSearch == "h") {
+            if(parentsRoomSearch == "enter hallway" || parentsRoomSearch == "enter" || parentsRoomSearch == "hallway" || parentsRoomSearch == "e" || parentsRoomSearch == "h" || parentsRoomSearch == "enter h" || parentsRoomSearch == "e hallway") {
                 alert("You leave your parents' bedroom and enter the hallway.");
                 FirstDreamUpstairsHallway();
             }
             
-            else if(parentsRoomSearch == "search closet" || parentsRoomSearch == "closet" || parentsRoomSearch == "c") {
+            else if(parentsRoomSearch == "search closet" || parentsRoomSearch == "closet" || parentsRoomSearch == "c" || parentsRoomSearch == "search c" || parentsRoomSearch == "s closet") {
                 if(parentsClosetSearch == true) {
                     parentsClosetSearch = false;
                     coinInventory += 1;
@@ -429,7 +468,7 @@ function Game() {
                 }
             }
             
-            else if(parentsRoomSearch == "search bed" || parentsRoomSearch == "bed" || parentsRoomSearch == "b") {
+            else if(parentsRoomSearch == "search bed" || parentsRoomSearch == "bed" || parentsRoomSearch == "b" || parentsRoomSearch == "search b" || parentsRoomSearch == "s bed") {
                 alert("There's nothing here.");
                 FirstDreamParentsRoom();
             }
@@ -444,12 +483,12 @@ function Game() {
         function FirstDreamGreenBathroom() {
             var firstDreamGreenBathroomSearch = prompt("There is a mirror on the wall. \n - Look at mirror \n- Leave bathroom").toLowerCase();
             
-            if(firstDreamGreenBathroomSearch == "look at mirror" || firstDreamGreenBathroomSearch == "look" || firstDreamGreenBathroomSearch == "mirror") {
+            if(firstDreamGreenBathroomSearch == "look at mirror" || firstDreamGreenBathroomSearch == "look" || firstDreamGreenBathroomSearch == "mirror" || firstDreamGreenBathroomSearch == "look mirror" || firstDreamGreenBathroomSearch == "look m" || firstDreamGreenBathroomSearch == "look at" || firstDreamGreenBathroomSearch == "l mirror" || firstDreamGreenBathroomSearch == "l at mirror") {
                 alert("Your face is intensely warped and continually twisting to horrifying shapes in the mirror. Not that there's anything different.");
                 FirstDreamGreenBathroom();
             }
             
-            else if(firstDreamGreenBathroomSearch == "leave bathroom" || firstDreamGreenBathroomSearch == "leave") {
+            else if(firstDreamGreenBathroomSearch == "leave bathroom" || firstDreamGreenBathroomSearch == "leave" || firstDreamGreenBathroomSearch == "leave b") {
                 alert("You leave the green bathroom and enter the hallway.");
                 FirstDreamUpstairsHallway();
             }
@@ -464,7 +503,7 @@ function Game() {
         function FirstDreamLivingRoom() {
             var downstairsParty = prompt("You are in the living room, where a massive party is taking place. The music heard earlier is now pounding and shaking the walls. Many people are getting quite drunk, including your mother. \n - Talk to mom \n - Enter kitchen \n - Enter study \n - Search couch \n - Go upstairs").toLowerCase();
             
-            if(downstairsParty == "talk to mom" || downstairsParty == "talk" || downstairsParty == "mom" || downstairsParty == "t" || downstairsParty == "m") {
+            if(downstairsParty == "talk to mom" || downstairsParty == "talk" || downstairsParty == "mom" || downstairsParty == "t" || downstairsParty == "m" || downstairsParty == "talk mom" || downstairsParty == "talk m") {
                 alert("You walk up to your mother, who greets you with a sluggish hug and unpleasant breath.");
                 prompt("\"How ya doon, " + playerName + "?\"");
                 alert("She seems to ignore you. Pretty accurate to real life.");
@@ -473,17 +512,17 @@ function Game() {
                 FirstDreamLivingRoom();
             }
             
-            else if(downstairsParty == "enter kitchen" || downstairsParty == "kitchen" || downstairsParty == "k") {
+            else if(downstairsParty == "enter kitchen" || downstairsParty == "kitchen" || downstairsParty == "k" || downstairsParty == "enter k" || downstairsParty == "e kitchen") {
                 alert("You enter the kitchen.");
                 FirstDreamKitchen();
             }
             
-            else if(downstairsParty == "enter study" || downstairsParty == "study") {
+            else if(downstairsParty == "enter study" || downstairsParty == "study" || downstairsParty == "enter s" || downstairsParty == "e study") {
                 alert("You enter your father's study.");
                 FirstDreamStudy();
             }
             
-            else if(downstairsParty == "search couch" || downstairsParty == "couch" || downstairsParty == "search" || downstairsParty == "s" || downstairsParty == "c") {
+            else if(downstairsParty == "search couch" || downstairsParty == "couch" || downstairsParty == "search" || downstairsParty == "s" || downstairsParty == "c" || downstairsParty == "search c" || downstairsParty == "s couch") {
                 alert("You shove people one by one off of the couch and throw the cushions behind you.");
                 if(couchSearch == true) {
                     couchSearch = false;
@@ -502,7 +541,7 @@ function Game() {
                 }
             }
             
-            else if(downstairsParty == "go upstairs" || downstairsParty == "go" || downstairsParty == "upstairs" || downstairsParty == "g" || downstairsParty == "u") {
+            else if(downstairsParty == "go upstairs" || downstairsParty == "go" || downstairsParty == "upstairs" || downstairsParty == "g" || downstairsParty == "u" || downstairsParty == "go u" || downstairsParty == "g upstairs") {
                 alert("You head back upstairs.");
                 FirstDreamUpstairsHallway();
             }
@@ -517,7 +556,7 @@ function Game() {
         function FirstDreamStudy() {
             var studySearch = prompt("Nobody seems to want to party in the study. Shocker. \n - Search bookshelf \n - Leave study").toLowerCase();
             
-            if(studySearch == "search bookshelf" || studySearch == "search" || studySearch == "bookshelf" || studySearch == "s" || studySearch == "b") {
+            if(studySearch == "search bookshelf" || studySearch == "search" || studySearch == "bookshelf" || studySearch == "s" || studySearch == "b" || studySearch == "search b" || studySearch == "s bookshelf") {
                 if(studyShelfSearch == true) {
                     studyShelfSearch = false;
                     coinInventory += 1;
@@ -535,7 +574,7 @@ function Game() {
                 }
             }
             
-            else if(studySearch == "leave study" || studySearch == "leave" || studySearch == "l") {
+            else if(studySearch == "leave study" || studySearch == "leave" || studySearch == "l" || studySearch == "leave s" || studySearch == "l study") {
                 alert("You leave your father's study.");
                 FirstDreamLivingRoom();
             }
@@ -550,7 +589,7 @@ function Game() {
         function FirstDreamKitchen() {
             var kitchenSearch = prompt("There are a few people in here eating out of the fridge and spilling their drinks casually onto the floor. \n - Search fridge \n - Search trash \n - Enter bathroom \n - Enter living room").toLowerCase();
             
-            if(kitchenSearch == "search fridge" || kitchenSearch == "fridge" || kitchenSearch == "f") {
+            if(kitchenSearch == "search fridge" || kitchenSearch == "fridge" || kitchenSearch == "f" || kitchenSearch == "s fridge" || kitchenSearch == "search f") {
                 alert("You shove two guys out of the way, knocking them and their drinks to the floor.");
                 if(fridgeSearch == true) {
                     fridgeSearch = false;
@@ -569,17 +608,17 @@ function Game() {
                 }
             }
             
-            else if(kitchenSearch == "search trash" || kitchenSearch == "trash" || kitchenSearch == "t") {
+            else if(kitchenSearch == "search trash" || kitchenSearch == "trash" || kitchenSearch == "t" || kitchenSearch == "search t" || kitchenSearch == "s trash") {
                 alert("There's nothing here.");
                 FirstDreamKitchen();
             }
             
-            else if(kitchenSearch == "enter bathroom" || kitchenSearch == "bathroom" || kitchenSearch == "b") {
+            else if(kitchenSearch == "enter bathroom" || kitchenSearch == "bathroom" || kitchenSearch == "b" || kitchenSearch == "enter b" || kitchenSearch == "e bathroom") {
                 alert("You enter a large, yellow bathroom.");
                 FirstDreamYellowBathroom();
             }
             
-            else if(kitchenSearch == "enter living room" || kitchenSearch == "living room" || kitchenSearch == "living" || kitchenSearch == "l") {
+            else if(kitchenSearch == "enter living room" || kitchenSearch == "living room" || kitchenSearch == "living" || kitchenSearch == "l" || kitchenSearch == "enter l" || kitchenSearch == "e living room" || kitchenSearch == "e living") {
                 alert("You enter the living room.");
                 FirstDreamLivingRoom();
             }
@@ -594,7 +633,7 @@ function Game() {
         function FirstDreamYellowBathroom() {
             var yellowBathroomSearch = prompt("There is a cabinet over the sink. The sink is full of various alcoholic liquids. \n - Search cabinet \n - Leave bathroom").toLowerCase();
             
-            if(yellowBathroomSearch == "search cabinet" || yellowBathroomSearch == "search" || yellowBathroomSearch == "cabinet" || yellowBathroomSearch == "s" || yellowBathroomSearch == "c") {
+            if(yellowBathroomSearch == "search cabinet" || yellowBathroomSearch == "search" || yellowBathroomSearch == "cabinet" || yellowBathroomSearch == "s" || yellowBathroomSearch == "c" || yellowBathroomSearch == "search c" || yellowBathroomSearch == "s cabinet") {
                 if(cabinetSearch == true) {
                     cabinetSearch = false;
                     coinInventory += 1;
@@ -612,7 +651,7 @@ function Game() {
                 }
             }
             
-            else if(yellowBathroomSearch == "leave bathroom" || yellowBathroomSearch == "leave" || yellowBathroomSearch == "l") {
+            else if(yellowBathroomSearch == "leave bathroom" || yellowBathroomSearch == "leave" || yellowBathroomSearch == "l" || yellowBathroomSearch == "leave b" || yellowBathroomSearch == "l bathroom") {
                 alert("You head back into the kitchen.");
                 FirstDreamKitchen();
             }
@@ -648,7 +687,7 @@ function Game() {
         function FirstDrugDreamFirstRoom() {
             var firstDrugDreamFirstRoomSearch = prompt("What do you do? \n - Go to bed \n - Search closet \ - Search bed \- Enter hallway").toLowerCase();
             
-            if(firstDrugDreamFirstRoomSearch == "go to bed" || firstDrugDreamFirstRoomSearch == "go" || firstDrugDreamFirstRoomSearch == "g") {
+            if(firstDrugDreamFirstRoomSearch == "go to bed" || firstDrugDreamFirstRoomSearch == "go" || firstDrugDreamFirstRoomSearch == "g" || firstDrugDreamFirstRoomSearch == "go bed" || firstDrugDreamFirstRoomSearch == "g bed" || firstDrugDreamFirstRoomSearch == "go b") {
                 if(drugInventory == 6) {
                     alert("You have collected all the pills. You sink slowly into your bed.");
                     SecondMorning();
@@ -660,7 +699,7 @@ function Game() {
                 }
             }
             
-            else if(firstDrugDreamFirstRoomSearch == "search bed") {
+            else if(firstDrugDreamFirstRoomSearch == "search bed" || firstDrugDreamFirstRoomSearch == "search b" || firstDrugDreamFirstRoomSearch == "s bed") {
                 if(yourBedSearch == true) {
                     yourBedSearch = false;
                     drugInventory += 1;
@@ -678,12 +717,12 @@ function Game() {
                 }
             }
             
-            else if(firstDrugDreamFirstRoomSearch == "search closet" || firstDrugDreamFirstRoomSearch == "closet" || firstDrugDreamFirstRoomSearch == "c") {
+            else if(firstDrugDreamFirstRoomSearch == "search closet" || firstDrugDreamFirstRoomSearch == "closet" || firstDrugDreamFirstRoomSearch == "c" || firstDrugDreamFirstRoomSearch == "search c" || firstDrugDreamFirstRoomSearch == "s closet") {
                 alert("There's nothing here.");
                 FirstDrugDreamFirstRoom();
             }
             
-            else if(firstDrugDreamFirstRoomSearch == "enter hallway" || firstDrugDreamFirstRoomSearch == "enter" || firstDrugDreamFirstRoomSearch == "e") {
+            else if(firstDrugDreamFirstRoomSearch == "enter hallway" || firstDrugDreamFirstRoomSearch == "enter" || firstDrugDreamFirstRoomSearch == "e" || firstDrugDreamFirstRoomSearch == "enter h" || firstDrugDreamFirstRoomSearch == "e hallway") {
                 alert("You leave your room and enter the hallway.");
                 FirstDrugDreamUpstairsHallway();
             }
@@ -698,22 +737,22 @@ function Game() {
         function FirstDrugDreamUpstairsHallway() {
             var upstairsPrompt = prompt("There are three doors open upstairs. The walls are still swaying. \n - Enter your bedroom \n - Enter parents' bedroom \n - Enter bathroom \n - Go downstairs").toLowerCase();
             
-            if(upstairsPrompt == "enter your bedroom" || upstairsPrompt == "your bedroom" || upstairsPrompt == "your" || upstairsPrompt == "y") {
+            if(upstairsPrompt == "enter your bedroom" || upstairsPrompt == "your bedroom" || upstairsPrompt == "your" || upstairsPrompt == "y" || upstairsPrompt == "enter your" || upstairsPrompt == "enter y" || upstairsPrompt == "e your bedroom" || upstairsPrompt == "e your" || upstairsPrompt == "your b" || upstairsPrompt == "y bedroom") {
                 alert("You enter your bedroom.");
                 FirstDrugDreamFirstRoom();
             }
             
-            else if(upstairsPrompt == "enter parents bedroom" || upstairsPrompt == "enter parents' bedroom" || upstairsPrompt == "parents bedroom" || upstairsPrompt == "parents' bedroom" || upstairsPrompt == "p") {
+            else if(upstairsPrompt == "enter parents bedroom" || upstairsPrompt == "enter parents' bedroom" || upstairsPrompt == "parents bedroom" || upstairsPrompt == "parents' bedroom" || upstairsPrompt == "p" || upstairsPrompt == "enter p" || upstairsPrompt == "e parents'" || upstairsPrompt == "e parents") {
                 alert("You enter your parents' bedroom.");
                 FirstDrugDreamParentsRoom();
             }
             
-            else if(upstairsPrompt == "enter bathroom" || upstairsPrompt == "bathroom" || upstairsPrompt == "b") {
+            else if(upstairsPrompt == "enter bathroom" || upstairsPrompt == "bathroom" || upstairsPrompt == "b" || upstairsPrompt == "enter b" || upstairsPrompt == "e bathroom") {
                 alert("You enter a small, green bathroom.");
                 FirstDrugDreamGreenBathroom();
             }
             
-            else if(upstairsPrompt == "go downstairs" || upstairsPrompt == "go" || upstairsPrompt == "downstairs" || upstairsPrompt == "g") {
+            else if(upstairsPrompt == "go downstairs" || upstairsPrompt == "go" || upstairsPrompt == "downstairs" || upstairsPrompt == "g" || upstairsPrompt == "d" || upstairsPrompt == "go d" || upstairsPrompt == "g downstairs" || upstairsPrompt == "g down" || upstairsPrompt == "go down" || upstairsPrompt == "down") {
                 alert("You head downstairs.");
                 FirstDrugDreamLivingRoom();
             }
@@ -728,12 +767,12 @@ function Game() {
         function FirstDrugDreamParentsRoom() {
             var parentsRoomSearch = prompt("The walls continue to sway in here. \n - Search closet \n - Search bed \n - Enter hallway").toLowerCase();
             
-            if(parentsRoomSearch == "enter hallway" || parentsRoomSearch == "enter" || parentsRoomSearch == "hallway" || parentsRoomSearch == "e" || parentsRoomSearch == "h") {
+            if(parentsRoomSearch == "enter hallway" || parentsRoomSearch == "enter" || parentsRoomSearch == "hallway" || parentsRoomSearch == "e" || parentsRoomSearch == "h" || parentsRoomSearch == "enter h" || parentsRoomSearch == "e hallway") {
                 alert("You leave your parents' bedroom and enter the hallway.");
                 FirstDrugDreamUpstairsHallway();
             }
             
-            else if(parentsRoomSearch == "search bed" || parentsRoomSearch == "bed" || parentsRoomSearch == "b") {
+            else if(parentsRoomSearch == "search bed" || parentsRoomSearch == "bed" || parentsRoomSearch == "b" || parentsRoomSearch == "search b" || parentsRoomSearch == "s bed") {
                 if(parentsBedSearch == true) {
                     parentsBedSearch = false;
                     drugInventory += 1;
@@ -751,7 +790,7 @@ function Game() {
                 }
             }
             
-            else if(parentsRoomSearch == "search closet" || parentsRoomSearch == "closet" || parentsRoomSearch == "c") {
+            else if(parentsRoomSearch == "search closet" || parentsRoomSearch == "closet" || parentsRoomSearch == "c" || parentsRoomSearch == "search c" || parentsRoomSearch == "s closet") {
                 alert("There's nothing here.");
                 FirstDrugDreamParentsRoom();
             }
@@ -950,6 +989,7 @@ function Game() {
         Climax();
     }
     
+    
     function Climax() {
             var secondMorningPrompt = prompt("\"Would you like some more pills?\" \n *This choice will also matter* \n - Pills \n - \"This isn't real!\"").toLowerCase();
 
@@ -1095,5 +1135,10 @@ function Game() {
             alert("Alright then.");
             alert("If you want to come back here, choose \"climax\" as your name.");
         }
+    }
+    
+    
+    function Credits() {
+        page.close
     }
 }
