@@ -1,9 +1,11 @@
+//Keeps the true ending from happening until players have reached it
 var ending = false;
 Game();
 
 function Game() {
 
     //Starts the whole Game.
+    //If players have reached the ending, they will find either pills or a knife on the counter instead of breakfast
     alert("You are awake.");
     var playerName = prompt("What is your name?");
     
@@ -79,7 +81,7 @@ function Game() {
     }
     
     
-    //First Morning after dressed
+    //First Morning after dressed. Nothing really happens.
     function FirstMorningUpstairsDressed() {
         alert("There are no other rooms open upstairs. You head downstairs.");
         FirstMorningDownstairsDressed();
@@ -148,9 +150,11 @@ function Game() {
     
     //First Breakfast after dressed
     function FirstMorningDownstairsDressed() {
+        //True ending morning
         if(ending == true) {
             var trueEnding = prompt("Entering the kitchen, you see pills on the counter. \n - End it \n - Try to sleep").toLowerCase();
             
+            //Bad ending
             if(trueEnding == "end it" || trueEnding == "end" || trueEnding == "it" || trueEnding == "e" || trueEnding == "end i") {
                 alert("You pop the pills in your mouth.");
                 alert("A burning sensation removes all sense of taste.");
@@ -163,6 +167,7 @@ function Game() {
                 Credits();
             }
             
+            //Decent ending
             else if(trueEnding == "try to sleep" || trueEnding == "sleep" || trueEnding == "try" || trueEnding == "t" || trueEnding == "s" || trueEnding == "try sleep" || trueEnding == "try s") {
                 alert("You pass out.");
                 alert("You try to open your eyes, but they seem to be sealed shut.");
@@ -178,6 +183,7 @@ function Game() {
             }
         }
         
+        //Default morning
         else{
             alert("Entering the kitchen, you see a plate of bacon and eggs on the counter. Your mother appears from behind the fridge and places a small jar next to the plate.");
             prompt("She says, \"Ah, " + playerName + "! You're finally awake! How are you feeling?\"");
@@ -247,9 +253,11 @@ function Game() {
     
     //First Breakfast after refusing dressed
     function FirstMorningDownstairsNaked() {
+        //True ending morning
         if(ending == true) {
             var trueEnding = prompt("Entering the kitchen, you see a knife on the counter. \n - End it \n - Try to sleep");
             
+            //Bad ending
             if(trueEnding == "end it" || trueEnding == "end" || trueEnding == "it" || trueEnding == "e" || trueEnding == "end i") {
                 alert("You pick up the knife. Your warped face is reflected in the blade.");
                 alert("Driving the knife into your stomach, you pass out.");
@@ -259,6 +267,7 @@ function Game() {
                 Credits();
             }
             
+            //Decent ending
             else if(trueEnding == "try to sleep" || trueEnding == "sleep" || trueEnding == "try" || trueEnding == "t" || trueEnding == "s" || trueEnding == "try sleep" || trueEnding == "try s") {
                 alert("You pass out.");
                 alert("You try to open your eyes, but they seem to be sealed shut.");
@@ -274,6 +283,7 @@ function Game() {
             }
         }
         
+        //Default morning
         else {
             alert("Entering the kitchen, you see a plate of bacon and eggs on the counter. Your mother appears from behind the fridge and places a small jar next to the plate.");
             prompt("She says, startled, \"AH! " + playerName + "?! Where are your clothes?!\"");
@@ -343,6 +353,7 @@ function Game() {
     
     
     //First Dream from breakfast first
+    //Players must search for coins before they can wake up. They are allowed to roam freely until they do so
     function FirstDream() {
         alert("You are asleep.");
         
@@ -488,7 +499,7 @@ function Game() {
                 FirstDreamGreenBathroom();
             }
             
-            else if(firstDreamGreenBathroomSearch == "leave bathroom" || firstDreamGreenBathroomSearch == "leave" || firstDreamGreenBathroomSearch == "leave b") {
+            else if(firstDreamGreenBathroomSearch == "leave bathroom" || firstDreamGreenBathroomSearch == "leave" || firstDreamGreenBathroomSearch == "leave b" || firstDreamGreenBathroomSearch == "l bathroom" || firstDreamGreenBathroomSearch == "bathroom" || firstDreamGreenBathroomSearch == "b") {
                 alert("You leave the green bathroom and enter the hallway.");
                 FirstDreamUpstairsHallway();
             }
@@ -574,14 +585,14 @@ function Game() {
                 }
             }
             
-            else if(studySearch == "leave study" || studySearch == "leave" || studySearch == "l" || studySearch == "leave s" || studySearch == "l study") {
+            else if(studySearch == "leave study" || studySearch == "leave" || studySearch == "l" || studySearch == "leave s" || studySearch == "l study" || studySearch == "study") {
                 alert("You leave your father's study.");
                 FirstDreamLivingRoom();
             }
             
             else {
                 alert("You have chosen an answer that either leads to nothing or doesn't make sense. Please try again.");
-                FirstDreamLivingRoom();
+                FirstDreamStudy();
             }
         }
         
@@ -666,6 +677,7 @@ function Game() {
         
     
     //First Dream from pills first
+    //Players must search for pills before they can wake up. They are allowed to roam freely until they do so
     function FirstDrugDream() {
         alert("You are asleep.");
         
@@ -805,12 +817,12 @@ function Game() {
         function FirstDrugDreamGreenBathroom() {
             var firstDreamGreenBathroomSearch = prompt("There is a mirror on the wall. \n - Look at mirror \n- Leave bathroom").toLowerCase();
             
-            if(firstDreamGreenBathroomSearch == "look at mirror" || firstDreamGreenBathroomSearch == "look" || firstDreamGreenBathroomSearch == "mirror") {
+            if(firstDreamGreenBathroomSearch == "look at mirror" || firstDreamGreenBathroomSearch == "look" || firstDreamGreenBathroomSearch == "mirror" || firstDreamGreenBathroomSearch == "look mirror" || firstDreamGreenBathroomSearch == "look m" || firstDreamGreenBathroomSearch == "l mirror" || firstDreamGreenBathroomSearch == "l at mirror" || firstDreamGreenBathroomSearch == "look at") {
                 alert("Your face is gone.");
                 FirstDrugDreamGreenBathroom();
             }
             
-            else if(firstDreamGreenBathroomSearch == "leave bathroom" || firstDreamGreenBathroomSearch == "leave") {
+            else if(firstDreamGreenBathroomSearch == "leave bathroom" || firstDreamGreenBathroomSearch == "leave" || firstDreamGreenBathroomSearch == "bathroom" || firstDreamGreenBathroomSearch == "l bathroom" || firstDreamGreenBathroomSearch == "leave b" || firstDreamGreenBathroomSearch == "b") {
                 alert("You leave the green bathroom and enter the hallway.");
                 FirstDrugDreamUpstairsHallway();
             }
@@ -825,17 +837,17 @@ function Game() {
         function FirstDrugDreamLivingRoom() {
             var downstairsParty = prompt("You are in the living room, where the floor is covered in gray, murky water. \n - Enter kitchen \n - Enter study \n - Search couch \n - Go upstairs").toLowerCase();
             
-            if(downstairsParty == "enter kitchen" || downstairsParty == "kitchen" || downstairsParty == "k") {
+            if(downstairsParty == "enter kitchen" || downstairsParty == "kitchen" || downstairsParty == "k" || downstairsParty == "e kitchen" || downstairsParty == "enter k") {
                 alert("You enter the kitchen.");
                 FirstDrugDreamKitchen();
             }
             
-            else if(downstairsParty == "enter study" || downstairsParty == "study") {
+            else if(downstairsParty == "enter study" || downstairsParty == "study" || downstairsParty == "enter s" || downstairsParty == "e study") {
                 alert("You enter your father's study.");
                 FirstDrugDreamStudy();
             }
             
-            else if(downstairsParty == "search couch" || downstairsParty == "couch" || downstairsParty == "search" || downstairsParty == "s" || downstairsParty == "c") {
+            else if(downstairsParty == "search couch" || downstairsParty == "couch" || downstairsParty == "search" || downstairsParty == "s" || downstairsParty == "c" || downstairsParty == "search c" || downstairsParty == "s couch") {
                 alert("The cushions and fabrics shrivel away into the frame.");
                 if(couchSearch == true) {
                     couchSearch = false;
@@ -854,7 +866,7 @@ function Game() {
                 }
             }
             
-            else if(downstairsParty == "go upstairs" || downstairsParty == "go" || downstairsParty == "upstairs" || downstairsParty == "g" || downstairsParty == "u") {
+            else if(downstairsParty == "go upstairs" || downstairsParty == "go" || downstairsParty == "upstairs" || downstairsParty == "g" || downstairsParty == "u" || downstairsParty == "g upstairs" || downstairsParty == "go u") {
                 alert("You head back upstairs.");
                 FirstDrugDreamUpstairsHallway();
             }
@@ -869,7 +881,7 @@ function Game() {
         function FirstDrugDreamStudy() {
             var studySearch = prompt("There is a man standing frozen by the bookshelf staring at you. He is pointing a finger at one of the books. \n - Search bookshelf \n - Leave study").toLowerCase();
             
-            if(studySearch == "search bookshelf" || studySearch == "search" || studySearch == "bookshelf" || studySearch == "s" || studySearch == "b") {
+            if(studySearch == "search bookshelf" || studySearch == "search" || studySearch == "bookshelf" || studySearch == "s" || studySearch == "b" || studySearch == "search b" || studySearch == "s bookshelf") {
                 alert("You move the book the man was pointing to.");
                 if(studyShelfSearch == true) {
                     studyShelfSearch = false;
@@ -888,7 +900,7 @@ function Game() {
                 }
             }
             
-            else if(studySearch == "leave study" || studySearch == "leave" || studySearch == "l") {
+            else if(studySearch == "leave study" || studySearch == "leave" || studySearch == "l" || studySearch == "study" || studySearch == "l study" || studySearch == "leave s") {
                 alert("You leave your father's study.");
                 FirstDrugDreamLivingRoom();
             }
@@ -903,7 +915,7 @@ function Game() {
         function FirstDrugDreamKitchen() {
             var kitchenSearch = prompt("The fridge is pulsing with bulging veins. \n - Search fridge \n - Search trash \n - Enter bathroom \n - Enter living room").toLowerCase();
             
-            if(kitchenSearch == "search trash" || kitchenSearch == "trash" || kitchenSearch == "t") {
+            if(kitchenSearch == "search trash" || kitchenSearch == "trash" || kitchenSearch == "t" || kitchenSearch == "search t" || kitchenSearch == "s trash") {
                 if(trashSearch == true) {
                     trashSearch = false;
                     drugInventory += 1;
@@ -921,17 +933,17 @@ function Game() {
                 }
             }
             
-            else if(kitchenSearch == "search fridge" || kitchenSearch == "fridge" || kitchenSearch == "f") {
+            else if(kitchenSearch == "search fridge" || kitchenSearch == "fridge" || kitchenSearch == "f" || kitchenSearch == "search f" || kitchenSearch == "s fridge") {
                 alert("There's nothing here. No pills anyway. There are hundreds of jars of white olives that look suspiciously like eyes, watching you.");
                 FirstDrugDreamKitchen();
             }
             
-            else if(kitchenSearch == "enter bathroom" || kitchenSearch == "bathroom" || kitchenSearch == "b") {
+            else if(kitchenSearch == "enter bathroom" || kitchenSearch == "bathroom" || kitchenSearch == "b" || kitchenSearch == "enter b" || kitchenSearch == "e bathroom") {
                 alert("You enter a large, yellow bathroom.");
                 FirstDrugDreamYellowBathroom();
             }
             
-            else if(kitchenSearch == "enter living room" || kitchenSearch == "living room" || kitchenSearch == "living" || kitchenSearch == "l") {
+            else if(kitchenSearch == "enter living room" || kitchenSearch == "living room" || kitchenSearch == "living" || kitchenSearch == "l" || kitchenSearch == "enter l" || kitchenSearch == "e living" || kitchenSearch == "e living room") {
                 alert("You enter the living room.");
                 FirstDrugDreamLivingRoom();
             }
@@ -946,7 +958,7 @@ function Game() {
         function FirstDrugDreamYellowBathroom() {
             var yellowBathroomSearch = prompt("The sink is full of a black, tar-like substance. \n - Search sink \n - Leave bathroom").toLowerCase();
             
-            if(yellowBathroomSearch == "search sink" || yellowBathroomSearch == "search" || yellowBathroomSearch == "sink" || yellowBathroomSearch == "s") {
+            if(yellowBathroomSearch == "search sink" || yellowBathroomSearch == "search" || yellowBathroomSearch == "sink" || yellowBathroomSearch == "s" || yellowBathroomSearch == "s sink" || yellowBathroomSearch == "search s") {
                 alert("You plunge your hand into the dark liquid. It has an almost alive warmth to it.");
                 if(sinkSearch == true) {
                     sinkSearch = false;
@@ -965,7 +977,7 @@ function Game() {
                 }
             }
             
-            else if(yellowBathroomSearch == "leave bathroom" || yellowBathroomSearch == "leave" || yellowBathroomSearch == "l") {
+            else if(yellowBathroomSearch == "leave bathroom" || yellowBathroomSearch == "leave" || yellowBathroomSearch == "l" || yellowBathroomSearch == "l bathroom" || yellowBathroomSearch == "leave b") {
                 alert("You head back into the kitchen.");
                 FirstDrugDreamKitchen();
             }
@@ -979,6 +991,8 @@ function Game() {
     
     
     
+    //Morning after dream
+    //Depending on the choice, players will have to run from/fight mom for the "final" stretch of the game
     function SecondMorning() {
         alert("You are in your room.");
         alert("It's morning.");
@@ -989,17 +1003,19 @@ function Game() {
         Climax();
     }
     
-    
+    //Fighting mom
     function Climax() {
             var secondMorningPrompt = prompt("\"Would you like some more pills?\" \n *This choice will also matter* \n - Pills \n - \"This isn't real!\"").toLowerCase();
-
-            if(secondMorningPrompt == "p" || secondMorningPrompt == "pills") {
+            
+            //Starts the drug dream
+            if(secondMorningPrompt == "p" || secondMorningPrompt == "pills" || secondMorningPrompt == "yes" || secondMorningPrompt == "y") {
                 alert("You take the pills.");
                 alert("She smiles as you drift asleep.");
                 FirstDrugDream();
             }
-
-            else if(secondMorningPrompt == "this isnt real" || secondMorningPrompt == "this isn't real" || secondMorningPrompt == "this" || secondMorningPrompt == "not real" || secondMorningPrompt == "no pills" || secondMorningPrompt == "t") {
+        
+            //Starting a climactic ending where mom attacks you
+            else if(secondMorningPrompt == "this isnt real" || secondMorningPrompt == "this isn't real" || secondMorningPrompt == "this" || secondMorningPrompt == "not real" || secondMorningPrompt == "no pills" || secondMorningPrompt == "t" || secondMorningPrompt == "real" || secondMorningPrompt == "r" || secondMorningPrompt == "no" || secondMorningPrompt == "n") {
                 alert("Your mom gives you a disapproving look.");
                 alert("She throws the tray at the wall. The plate shatters, spilling pancakes and broken glass onto the floor.");
                 var climaxRun = prompt("She pulls out a large knife. \n - Run!").toLowerCase();
@@ -1007,19 +1023,20 @@ function Game() {
                 if(climaxRun == "run" || climaxRun == "r") {
                     var upstairsClimax = prompt("You dash out of your room right as your mother slashes the pillow. \n - Bathroom \n - Downstairs").toLowerCase();
                     
+                    //Bad ending
                     if(upstairsClimax == "bathroom" || upstairsClimax == "b") {
                         var bathroomClimax = prompt("You run into the green bathroom and slam the door. \n - Lock the door").toLowerCase();
                         
-                        if(bathroomClimax == "lock the door" || bathroomClimax == "lock" || bathroomClimax == "door" || bathroomClimax == "l" || bathroomClimax == "d") {
+                        if(bathroomClimax == "lock the door" || bathroomClimax == "lock" || bathroomClimax == "door" || bathroomClimax == "l" || bathroomClimax == "d" || bathroomClimax == "lock door" || bathroomClimax == "l door" || bathroomClimax == "lock d") {
                             alert("You twist the lock.");
-                            alert("A loud thud comes from the other side.");
+                            alert("A loud thud comes from the other side, followed by splintering wood.");
                             alert("You look for an exit.");
-                            alert("The sound of splintering wood intensifies.");
+                            alert("The sound of chopping and splintering wood intensifies.");
                             alert("The window is sealed shut.");
                             alert("A blade pierces through the center of the door.");
                             alert("You cower in the furthest corner from the door.");
                             alert("Her whole hand plunges through the wood with the knife.");
-                            alert("It flies out of her hand.");
+                            alert("It flies out of her hand towards you.");
                             Death();
                         }
                         
@@ -1037,6 +1054,7 @@ function Game() {
                             alert("It's locked.");
                             var escapeDoor = prompt("Her shadow covers the door. \n - Fight \n - Flight");
                             
+                            //Good ending
                             if(escapeDoor == "fight") {
                                 alert("You turn around and lunge at her.");
                                 alert("Somehow, you ended up plowing the knife into her stomach.");
@@ -1046,6 +1064,7 @@ function Game() {
                                 Victory();
                             }
                             
+                            //Bad ending
                             else if(escapeDoor == "flight") {
                                 alert("You try to dart past her.");
                                 alert("She grabs you and pulls you closer.");
@@ -1064,17 +1083,19 @@ function Game() {
                             alert("She appears from around the corner, blood dripping from the corners of her mouth.");
                             var escapeWindow = prompt("She appears from around the corner. \n - Fight \n - Flight").toLowerCase();
                             
+                            //Bad ending
                             if(escapeWindow == "fight") {
                                 alert("You run at her, fists swinging wildly.");
                                 alert("A few punches hit her, but she's not phased at all.");
                                 Death();
                             }
                             
+                            //Good ending
                             else if(escapeWindow == "flight") {
                                 alert("You scramble through the window.");
-                                alert("A stinging sensation forms behind your left thigh.");
+                                alert("A deep, stinging sensation forms behind your left thigh.");
                                 alert("You fall out of the window, landing hard on the knife in your leg.");
-                                alert("Looking through the window, your mother stares back and screams. Blood flies from her mouth, which is full of glass shards. Apparently, she can't get to you.");
+                                alert("Looking through the window, your mother stares back and screams. Blood flies from her mouth, which is full of glass shards. Apparently, she can't get to you and is quite pissed about it.");
                                 Victory();
                             }
                             
@@ -1109,7 +1130,7 @@ function Game() {
             }
         }
     
-    
+    //Esaping mom and starting a true ending
     function Victory() {
         alert("You have escaped!");
         alert("However...");
@@ -1121,23 +1142,31 @@ function Game() {
         Game();
     }
     
-    
+    //Death by mom
     function Death() {
         alert("The knife is driven deep into your head.");
-        var restart = prompt("You have died. \n - Type R to restart at the last important choice.").toLowerCase();
-            
-        if(restart == "r") {
-            Climax();
-        }
+        var restart = prompt("You have died. \n - Type R to restart at the last *Important* choice.").toLowerCase();
         
-        else {
-            alert("You don't want to restart?");
-            alert("Alright then.");
-            alert("If you want to come back here, choose \"climax\" as your name.");
+        switch(restart) {
+            
+            case "r":
+                Climax();
+                break;
+
+            default:
+                while (!confirm("You don't want to restart at the last *Important* prompt?")) {
+                    alert("You will restart at the last *Important* prompt.");
+                    Climax();
+                }
+
+                alert("Alright then.");
+                alert("If you want to come back here, choose \"climax\" as your name.");
+                Game();
+                break;
         }
     }
     
-    
+    //Closes page to reveal credits
     function Credits() {
         page.close
     }
