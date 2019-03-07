@@ -5,14 +5,25 @@
     </head>
     
     <body>
-        <h1>Hellow there</h1>
+        <h1 id = "hello1">Hellow there</h1>
+        
+        <p id = "hello2">Hello there</p>
         
         <p id = "biscuit">I eat your soul now</p>
         
-        <p>I eat your soul now</p>
+        <p id = "shoe">I eat your soul now</p>
+        
+        <p id = "tiny">If you can read this, you have amazing eyesight. (or you just zoomed)</p>
         
         <script>
-        document.getElementById("biscuit").innerHTML = "I eat all of the butter";
+            document.getElementById("biscuit").innerHTML = "I eat all of the butter";
+            document.getElementById("hello2").style.color = "red";
+            document.getElementById("hello2").style.fontFamily = "Herculanum";
+            document.getElementById("hello2").style.fontSize = "50px";
+            document.getElementById("tiny").style.fontSize = "5px";
+            document.getElementById("hello1").style.color = "blue";
+            document.getElementById("shoe").style.fontFamily = "Phosphate";
+            document.getElementById("shoe").style.fontsize = "10px";
         </script>
         
         <button onclick= "document.getElementById('myImage').src= 'vomit%20face.jpg'">Reverse the soul eating process</button>
