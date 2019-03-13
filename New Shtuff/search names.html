@@ -33,10 +33,10 @@
                     <a href="#">Adrian</a>
                 </li>
                 <li class="collection-item">
-                    <a href="#">Anthony</a>
+                    <a href="#">Amy</a>
                 </li>
                 <li class="collection-item">
-                    <a href="#">Amy</a>
+                    <a href="#">Anthony</a>
                 </li>
                 <li class="collection-item">
                     <a href="#">Avery</a>
@@ -74,8 +74,175 @@
                     <a href="#">Cornifer</a>
                 </li>
                 
+                <li class="collection-header">
+                    <h5>D</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Daniel</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Darren</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Dingus</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Dirt</a>
+                </li>
+                
+                <li class="collection-header">
+                    <h5>E</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Ellie</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Ethan</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Evie</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Evil</a>
+                </li>
+                
+                <li class="collection-header">
+                    <h5>F</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Fellow</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Fhil</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Fork</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Fred</a>
+                </li>
+                
+                <li class="collection-header">
+                    <h5>G</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Gabuscus</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Gimli</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Gir</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">God</a>
+                </li>
+                
+                <li class="collection-header">
+                    <h5>H</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Harold</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Harry</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Hatty</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Herbet</a>
+                </li>
+                
+                <li class="collection-header">
+                    <h5>I</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Imhotep</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Inch</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Isabella</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Ivan</a>
+                </li>
+                
+                <li class="collection-header">
+                    <h5>J</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Jams</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Jarold</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Jew</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Joosh</a>
+                </li>
+                
+                <li class="collection-header">
+                    <h5>K</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Karen</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Karol</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Kermit</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Kevin</a>
+                </li>
+                
+                <li class="collection-header">
+                    <h5>L</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Leslie</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Loser</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Chris</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Cornifer</a>
+                </li>
+                
             </ul>
+            
         </div>
+        
+        <script>
+        let filterInput = document.getElementById('filterInput');
+        filterInput.addEventListener('keyup', filterNames);
+            
+        function filterNames(){
+            let filterValue = document.getElementById('filterInput').value.toUpperCase();
+            
+            let ul = document.getElementById('names');
+            let li = ul.querySelectorAll('li.collection-item');
+            
+            for(let i = 0; i < li.length; i++) {
+                let a = li[i].getElementsByTagName('a')[0];
+                if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+                    li[i].style.display = '';
+                } else{
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+        </script>
     
     </body>
+    
 </html>
