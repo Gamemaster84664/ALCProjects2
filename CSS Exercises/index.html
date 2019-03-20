@@ -4,6 +4,7 @@
     <head>
         <title> CSS Exercises</title>
         <style type = "text/css">
+            
             body{
                 background-color: blue;
                 margin: 0;
@@ -13,31 +14,82 @@
                 color: darkorange;
                 font-family: "Futura", sans-serif;
                 font-size: 50px;
-                margin-bottom: 10px;
-                margin-top: 10px;
-                margin-left: 10px;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-left: 0px;
                 margin-right: 0px;
                 text-align: center;
-                text-shadow: 5px 5px 5px
-                black;
+                text-shadow: 5px 5px 5px black;
             }
             
-            h3{
+            h2{
                 color: chartreuse;
                 font-family: "Chalkboard", sans-serif;
-                font-size: 25px;
+                font-size: 30px;
                 font-weight: bold;
-                margin: 10px 0px 10px 10px;
+                margin: 20px 0px 20px 0px;
                 text-align: center;
-                text-shadow: 2px 2px 2px
-                chartreuse;
+                text-shadow: 2px 2px 2px chartreuse;
+                border-bottom: solid 5px;
             }
+            
+            div#square{
+                background-color: darksalmon;
+                width: 100px;
+                height: 100px;
+                border: solid 5px brown;
+                position: absolute;
+                left: 500px;
+                top: 500px;
+            }
+            
+            div#circle{
+                background-color: aquamarine;
+                width: 150px;
+                height: 150px;
+                border: double 10px red;
+                border-radius: 100%;
+                position: absolute;
+                left: 250px;
+                top: 250px;
+            }
+            
+            div#dramaticsquash{
+                background-color: #ffbb12;
+                width: 200px;
+                height: 200px;
+                box-shadow: 25px 25px 50px;
+                border: outset 5px purple;
+                border-radius: 40%;
+                position: relative;
+                left: 750px;
+                top: 100px;
+            }
+            
+            div#triangle{
+                background-color: transparent;
+                width: 0px;
+                height: 0px;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+                border-bottom: 100px solid crimson;
+                position: absolute;
+                left: 100px;
+                top: 400px;
+            }
+            
         </style>
     </head>
     
     <body>
+        
         <h1> CSS Exercises </h1>
-        <h3> Vol.1</h3>
+        <h2> Vol.1</h2>
+        <div id="square"></div>
+        <div id="circle"></div>
+        <div id="dramaticsquash"></div>
+        <div id="triangle"></div>
+        
     </body>
     
 </html>
