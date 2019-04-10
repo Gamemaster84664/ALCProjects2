@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<canvas id="canvas" width="400" height="400" style="background-color: #333"></canvas>
+<canvas id="canvas" width="400" height="400" style="background-color: #000000"></canvas>
     
 <script>
     var canvas = document.getElementById("canvas");
@@ -24,17 +24,17 @@
         
         ctx.beginPath();
         ctx.arc(0,0, radius, 0, 2 * Math.PI);
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "#ffe398";
         ctx.fill();
         
         grad = ctx.createRadialGradient(0,0, radius * 0.95, 0,0, radius * 1.05);
-        grad.addColorStop(0, "#333");
-        grad.addColorStop(0.5, "white");
-        grad.addColorStop(1, "#333");
+        grad.addColorStop(0, "#342103");
+        grad.addColorStop(0.5, "#d0891d");
+        grad.addColorStop(1, "#1c1100");
         ctx.strokeStyle = grad;
         ctx.lineWidth = radius * 0.1;
         ctx.stroke();
-        
+
         ctx.beginPath();
         ctx.arc(0,0, radius * 0.1, 0, 2 * Math.PI);
         ctx.fillStyle = "#333";
@@ -44,7 +44,7 @@
     function drawNumbers() {
         var ang;
         var num;
-        ctx.font = radius * 0.15 + "px arial";
+        ctx.font = radius * 0.18 + "px BlackCastleMF";
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
         for(num = 1; num < 13; num++) {
@@ -52,6 +52,7 @@
             ctx.rotate(ang);
             ctx.translate(0, -radius * 0.85);
             ctx.rotate(-ang);
+            ctx.fillStyle = "#570600";
             ctx.fillText(num.toString(), 0, 0);
             ctx.rotate(ang);
             ctx.translate(0, radius * 0.85);
@@ -64,28 +65,48 @@
         var hour = now.getHours();
         var minute = now.getMinutes();
         var second = now.getSeconds();
+        //Second
+        second = (second * Math.PI / 30);
+        drawSecondHand(ctx, second, radius * .9, radius * 0.025);
+        //Minute
+        minute = (minute * Math.PI / 30) + (second * Math.PI / (30*60));
+        drawHand(ctx, minute, radius * 0.8, radius * 0.05);
         //Hour
         hour = hour%12;
         hour = (hour * Math.PI/6) + (minute*Math.PI/(6*60)) + (second*Math.PI / (360*60));
-        drawHand(ctx, hour, radius * 0.5, radius * 0.07);
-        //Minute
-        minute = (minute * Math.PI / 30) + (second * Math.PI / (30*60));
-        drawHand(ctx, minute, radius * 0.8, radius * 0.07);
-        //Second
-        second = (second * Math.PI / 30);
-        drawHand(ctx, second, radius * 0.9, radius * 0.02);
+        drawHand(ctx, hour, radius * 0.6, radius * 0.06);
+        
+        ctx.beginPath();
+        ctx.arc(0,0, radius * 0.1, 0, 2 * Math.PI);
+        ctx.fillStyle = "#000000";
+        ctx.fill();
     }
     
     function drawHand(ctx, pos, length, width) {
         ctx.beginPath();
+        ctx.strokeStyle = "#000000";
         ctx.lineWidth = width;
         ctx.lineCap = "round";
+        ctx.stroke();
         ctx.moveTo(0,0);
         ctx.rotate(pos);
         ctx.lineTo(0, -length);
         ctx.stroke();
         ctx.rotate(-pos);
     }
+    function drawSecondHand(ctx, pos, length, width) {
+        ctx.beginPath();
+        ctx.strokeStyle = "#ff0000";
+        ctx.lineWidth = width;
+        ctx.lineCap = "round";
+        ctx.stroke();
+        ctx.moveTo(0,0);
+        ctx.rotate(pos);
+        ctx.lineTo(0, -length);
+        ctx.stroke();
+        ctx.rotate(-pos);
+    }   
+    
 </script>
     
 </body>
