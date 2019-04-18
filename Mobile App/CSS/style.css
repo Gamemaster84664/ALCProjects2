@@ -8,11 +8,61 @@ html, body, div, h1,h2,h3,h4,h5,h6, p, ul, ol, li, header, footer, nav {
 
 
 /* Universal Style */
-body {
+body 
+{
     background-color: #bdf2ff;
 }
-div#container {
+
+div#container 
+{
     width: 1200px;
     height: 800px;
-    background-color: #2cf5d6;
+    background-color: #00a6bc;
+}
+header 
+{
+    width: 95.8%;
+    padding: 25px;
+    background-color: #1dd371;
+}
+header h1 
+{
+    color: #ffffff;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 3em;
+}
+
+div#content 
+{
+    width: 1150px;
+    background-color: #00ba5d;
+    font-family: "Android", sans-serif;
+    font-size: 1.3em;
+}
+nav 
+{
+    width: 1100px;
+    background-color: #009f55;
+}
+nav ul
+{
+    display: block;
+    margin: auto;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1.1em;
+    list-style: none;
+}
+nav ul li 
+{
+    float: left;
+    padding: 5px 15px;
+}
+.keepopen {
+    clear: both;
+}
+
+footer 
+{
+    color: #ffffff;
+    font-size: 20px;
 }
