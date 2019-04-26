@@ -16,6 +16,7 @@ body
 div#container 
 {
     width: 100%;
+    height: 1000px;
     background-color: #00a6bc;
 }
 header 
@@ -39,6 +40,7 @@ div#content
     font-size: 1.3em;
 }
 
+/*
 nav 
 {
     width: 90%;
@@ -64,11 +66,39 @@ nav ul li a
 nav ul li a:hover{
     background-color: #4cff6e;
     color: #000000;
+    box-shadow: 0px 0px 50px #38ff48;
 }
 div.keepOpen {
     clear: both;
 }
+*/
 
+.icon-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00ffa9;
+    overflow: auto;
+}
+.icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0px;
+    transition: all 0.5s ease;
+    color: blue;
+    font-size: 36px;
+}
+.icon-bar a:hover{
+    background-color: #000000;
+    color: #00daff;
+}
+.active {
+    background-color: #00ffeb;
+}
+
+/*
 footer 
 {
     position: absolute;
@@ -84,8 +114,9 @@ footer
         width: 100%;
     }
     nav ul li a{
-        width: 70%;
+        width: 90%;
         float: none;
         text-align: center;
     }
 }
+*/
