@@ -25,8 +25,14 @@ header
     padding: 25px;
     background-color: #1dd371;
 }
+header img#applogo{
+    display: block;
+    margin: auto;
+    width: 100px;
+}
 header h1 
 {
+    text-align: center;
     color: #ffffff;
     font-family: "IBM Plex Mono", monospace;
     font-size: 3em;
@@ -38,6 +44,9 @@ div#content
     background-color: #00ba5d;
     font-family: "Android", sans-serif;
     font-size: 1.3em;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 /*
@@ -95,7 +104,7 @@ div.keepOpen {
     color: #00daff;
 }
 .active {
-    background-color: #00ffeb;
+    background-color: #4bf218;
 }
 
 /*
