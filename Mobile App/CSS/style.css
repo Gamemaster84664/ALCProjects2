@@ -28,7 +28,11 @@ header
 header img#applogo{
     display: block;
     margin: auto;
+<<<<<<< HEAD
     width: 50px;
+=======
+    width: 100px;
+>>>>>>> master
 }
 header h1 
 {
