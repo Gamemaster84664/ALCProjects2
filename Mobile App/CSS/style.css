@@ -25,14 +25,11 @@ header
     padding: 25px;
     background-color: #1dd371;
 }
-header img#applogo{
+header img#applogo {
     display: block;
     margin: auto;
-<<<<<<< HEAD
     width: 50px;
-=======
     width: 100px;
->>>>>>> master
 }
 header h1 
 {
